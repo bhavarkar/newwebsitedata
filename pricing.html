@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pricing — Your Custom AI Solution | Data Agent Services</title>
+    <meta name="description"
+        content="Custom AI automation pricing for businesses in India and UAE. Personalised quotes for WhatsApp AI agents, n8n workflows, and lead nurturing. No fixed price lists.">
+    <link rel="canonical" href="https://www.dataagent.in/pricing">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ════════════════════════════════════════
+           PRICING PAGE CUSTOM STYLES
+        ════════════════════════════════════════ */
+
+        /* 1. HERO */
+        .pricing-hero {
+            background-color: transparent;
+            padding: 180px 5% 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-dot-grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(244, 139, 105, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .pricing-hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            background: rgba(244, 139, 105, 0.1);
+            color: var(--color-brand-teal);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(244, 139, 105, 0.2);
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .hero-h1 {
+            color: var(--color-text-white);
+            max-width: 900px;
+            margin-bottom: 24px;
+        }
+
+        .hero-sub {
+            color: var(--color-text-muted);
+            font-size: 20px;
+            max-width: 750px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .trust-chips {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .trust-chip {
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-chip::before {
+            content: '•';
+            color: var(--color-brand-teal);
+            font-size: 24px;
+        }
+
+        /* 2. PRICING CARDS */
+        .cards-section {
+            padding: 100px 5%;
+            background: var(--color-glass-bg);
+            margin-top: -60px;
+            z-index: 5;
+            position: relative;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tier-card {
+            background: var(--color-glass-bg);
+            border-radius: 24px;
+            padding: 48px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(10, 22, 40, 0.08);
+        }
+
+        .tier-badge {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+
+        .tier-h3 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: var(--color-text-white);
+        }
+
+        .tier-subtitle {
+            color: var(--color-text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .who-list,
+        .include-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .who-list li,
+        .include-list li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+            line-height: 1.4;
+        }
+
+        .who-list li {
+            color: var(--color-text-body);
+            font-weight: 500;
+        }
+
+        .who-list li::before {
+            content: '→';
+            color: var(--color-brand-teal);
+        }
+
+        .include-list li {
+            color: var(--color-text-muted);
+        }
+
+        .include-list li.check::before {
+            content: '✓';
+            color: var(--color-brand-teal);
+            font-weight: 900;
+        }
+
+        .include-list li.cross::before {
+            content: '×';
+            color: var(--color-text-muted);
+            font-size: 18px;
+        }
+
+        .tier-cta {
+            width: 100%;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .tier-note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--color-text-muted);
+            text-align: center;
+        }
+
+        /* GROWTH CARD SPECIAL */
+        .tier-card.growth {
+            background: var(--color-bg-primary);
+            border-color: var(--color-brand-teal);
+            scale: 1.05;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(244, 139, 105, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-brand-amber);
+            color: var(--color-text-white);
+            padding: 6px 20px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .tier-card.growth .tier-h3 {
+            color: #fff;
+        }
+
+        .tier-card.growth .who-list li {
+            color: var(--color-text-white);
+        }
+
+        .tier-card.growth .include-list li {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* 3. COMPARISON TABLE */
+        .table-section {
+            padding: 100px 5%;
+            background: rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .table-container {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            background: var(--color-glass-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 24px 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            background: var(--color-glass-bg);
+            font-weight: 700;
+            color: var(--color-text-white);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 15px;
+            color: var(--color-text-body);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .feature-col {
+            font-weight: 600;
+            color: var(--color-text-white);
+            min-width: 250px;
+        }
+
+        .val-check {
+            color: var(--color-brand-teal);
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .val-cross {
+            color: #CBD5E0;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .val-text {
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--color-brand-amber);
+        }
+
+        /* Mobile Sticky first col */
+        @media (max-width: 767px) {
+
+            th:first-child,
+            td:first-child {
+                position: sticky;
+                left: 0;
+                background: var(--color-glass-bg);
+                z-index: 5;
+                box-shadow: 5px 0 10px rgba(0, 0, 0, 0.02);
+            }
+        }
+
+        /* 4. ROI CALCULATOR */
+        .roi-section {
+            padding: 100px 5%;
+            background: var(--color-bg-primary);
+            color: #fff;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+            align-items: center;
+        }
+
+        .roi-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--color-brand-teal);
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .range-value {
+            font-family: var(--font-mono);
+            color: var(--color-brand-teal);
+            font-size: 18px;
+            font-weight: 700;
+            float: right;
+        }
+
+        .roi-output {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(244, 139, 105, 0.2);
+            padding: 60px;
+            border-radius: 32px;
+            text-align: center;
+        }
+
+        .roi-result {
+            font-family: var(--font-display);
+            font-size: 80px;
+            color: var(--color-brand-teal);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* 5. HOW IT WORKS */
+        .process-section {
+            padding: 100px 5%;
+            background: var(--color-glass-bg);
+            text-align: center;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .step-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--color-text-white);
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* 6. FAQ */
+        .faq-section {
+            padding: 100px 5%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--color-glass-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-q {
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--color-text-white);
+        }
+
+        .faq-a {
+            padding: 0 32px 32px;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-a {
+            display: block;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-icon {
+            color: var(--color-brand-teal);
+            transition: 0.3s;
+        }
+
+        /* 7. BOTTOM CTA */
+        .bottom-cta {
+            padding: 100px 5%;
+            background: var(--color-bg-primary);
+            text-align: center;
+            color: #fff;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1023px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                margin-top: 0;
+            }
+
+            .tier-card.growth {
+                scale: 1;
+                border-width: 1px;
+            }
+
+            .roi-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-h1 {
+                font-size: 40px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-result {
+                font-size: 56px;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- LEFT — Logo -->
+            <a href="index.html" class="nav-logo"><span class="nav-wordmark" style="color: white; font-weight: 700; font-family: 'DM Sans', sans-serif;">Data Agent Services</span></a>
+
+            <!-- CENTRE — Links -->
+            <div class="nav-links">
+                <a href="services.html" class="nav-link"><span>Services</span></a>
+                <a href="case-studies.html" class="nav-link"><span>Case Studies</span></a>
+                <a href="pricing.html" class="nav-link active"><span>Pricing</span></a>
+                <a href="about.html" class="nav-link"><span>About</span></a>
+                <a href="blog.html" class="nav-link"><span>Blog</span></a>
+                <div class="nav-indicator"></div>
+            </div>
+
+            <!-- RIGHT — Buttons -->
+            <div class="nav-actions">
+                <a href="https://cal.com/dataagent/15min" class="btn-demo">Book a Demo</a>
+                <a href="https://wa.me/916264149778" class="btn-wa-icon" aria-label="WhatsApp">
+                    
+                </a>
+                <button class="nav-hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="drawer">
+        <div class="drawer-links">
+            <a href="services.html">Services</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+        </div>
+        <div class="drawer-bottom">
+            <a href="demo.html"
+                style="background: var(--color-brand-teal); text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Book
+                Free Audit →</a>
+            <a href="https://wa.me/916264149778"
+                style="background:#25D366; text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Chat
+                on WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- SECTION 1: HERO -->
+    <header class="pricing-hero">
+        <div class="hero-dot-grid"></div>
+        <span class="eyebrow reveal">TRANSPARENT PRICING</span>
+        <h1 class="hero-h1 h1 reveal">Pricing That Fits Your Country, Your Business, Your Budget.</h1>
+        <p class="hero-sub reveal">We serve businesses across India, UAE, and beyond. Every quote is built around your
+            specific requirements — not a price list.</p>
+        <div class="trust-chips reveal">
+            <span class="trust-chip">India: Quoted in INR</span>
+            <span class="trust-chip">UAE: Quoted in AED</span>
+        </div>
+    </header>
+
+    <!-- SECTION 2: 3 TIER CARDS -->
+    <section class="cards-section">
+        <div class="cards-grid">
+            <!-- Starter -->
+            <div class="tier-card reveal">
+                <span class="tier-badge" style="background: rgba(244, 139, 105, 0.1); color: var(--color-brand-teal);">FOR SMALL
+                    BUSINESSES</span>
+                <h3 class="tier-h3">Starter</h3>
+                <p class="tier-subtitle">Best for single-location businesses getting started with WhatsApp automation.
+                </p>
+                <ul class="who-list">
+                    <li>Independent Business</li>
+                    <li>Solo real estate agents</li>
+                    <li>Small coaching centres</li>
+                    <li>Single-location retailers</li>
+                </ul>
+                <ul class="include-list">
+                    <li class="check">WhatsApp AI Agent setup</li>
+                    <li class="check">Basic FAQ knowledge training</li>
+                    <li class="check">Google Calendar integration</li>
+                    <li class="check">Hindi + English language support</li>
+                    <li class="check">30-day post-launch support</li>
+                    <li class="cross">n8n lead nurturing</li>
+                    <li class="cross">Supabase logging</li>
+                </ul>
+                <a href="demo.html" class="btn-glow tier-cta" style="margin-top: auto;">Book Free Audit →</a>
+                <p class="tier-note">Quote provided after free audit call.</p>
+            </div>
+
+            <!-- Growth -->
+            <div class="tier-card growth reveal">
+                <div class="popular-badge">MOST POPULAR</div>
+                <h3 class="tier-h3">Growth</h3>
+                <p class="tier-subtitle">For businesses ready to scale WhatsApp automation end-to-end.</p>
+                <ul class="who-list">
+                    <li>Multi-branch clinics or hospital groups</li>
+                    <li>Real estate teams with 50+ leads/month</li>
+                    <li>Schools with 200+ annual admissions</li>
+                    <li>Growing coaching institutes</li>
+                </ul>
+                <ul class="include-list">
+                    <li class="check">Everything in Starter</li>
+                    <li class="check">n8n lead nurturing workflows</li>
+                    <li class="check">Google Sheets CRM integration</li>
+                    <li class="check">Supabase conversation logging</li>
+                    <li class="check">Telegram staff alert system</li>
+                    <li class="check">60-day post-launch support</li>
+                    <li class="check">Monthly performance review</li>
+                </ul>
+                <a href="demo.html" class="btn-glow tier-cta" style="margin-top: auto;">Book Free Audit →</a>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="tier-card reveal">
+                <span class="tier-badge" style="background: rgba(245, 158, 11, 0.1); color: var(--color-brand-amber);">FOR
+                    SCALING OPERATIONS</span>
+                <h3 class="tier-h3">Enterprise</h3>
+                <p class="tier-subtitle">For businesses with high volumes, multiple branches, or complex requirements.
+                </p>
+                <ul class="who-list">
+                    <li>Clinic chains and hospital networks</li>
+                    <li>Real estate developers (UAE + India)</li>
+                    <li>Education franchise networks</li>
+                    <li>Any business needing custom AI architecture</li>
+                </ul>
+                <ul class="include-list">
+                    <li class="check">Full custom AI architecture</li>
+                    <li class="check">RAG knowledge base (Pinecone)</li>
+                    <li class="check">Multi-agent setup</li>
+                    <li class="check">Dedicated support SLA</li>
+                    <li class="check">Team training sessions</li>
+                    <li class="check">Monthly optimisation calls</li>
+                    <li class="check">Priority build queue</li>
+                </ul>
+                <a href="demo.html" class="btn-glow tier-cta" style="margin-top: auto;">Book Free Audit →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FEATURE COMPARISON -->
+    <section class="table-section">
+        <h2 class="text-h2 reveal">What's Included — At a Glance</h2>
+        <div class="table-container reveal">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="feature-col">Feature</th>
+                            <th style="text-align: center;">Starter</th>
+                            <th style="text-align: center;">Growth</th>
+                            <th style="text-align: center;">Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-col">WhatsApp AI Agent</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Hindi + English support</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Google Calendar booking</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Basic FAQ training</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">n8n Workflow automation</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Google Sheets CRM sync</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Supabase logging</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Telegram staff alerts</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">RAG knowledge base</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Multi-agent setup</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Dedicated support SLA</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Monthly optimisation</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-check">✓</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Team training session</td>
+                            <td class="val-cross">×</td>
+                            <td class="val-text">Add-on</td>
+                            <td class="val-check">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: ROI CALCULATOR -->
+    <section class="roi-section">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2 class="text-h2 reveal" style="color: #fff;">What's the Cost of NOT Automating?</h2>
+            <p class="text-body-large reveal" style="margin-top: 16px; opacity: 0.8;">See how much revenue you are
+                leaving on the table every month.</p>
+        </div>
+
+        <div class="roi-grid">
+            <div class="roi-controls reveal">
+                <div class="control-group">
+                    <label>Leads per month who go unanswered after hours <span id="leads-val"
+                            class="range-value">100</span></label>
+                    <input type="range" id="leads-slider" min="10" max="500" value="100">
+                </div>
+                <div class="control-group">
+                    <label>Average value of one converted lead</label>
+                    <input type="number" id="lead-value-input" class="input-field" placeholder="Enter average value"
+                        style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: #fff; padding: 12px; border-radius: 8px; width: 100%;">
+                    <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 12px;">Pricing customised by
+                        country and business size.</p>
+                </div>
+            </div>
+
+            <div class="roi-output reveal" style="display: flex; flex-direction: column; justify-content: center; min-height: 280px;">
+                <div id="roi-result-display" class="roi-result">CONTACT FOR QUOTE</div>
+                <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.9); margin-top: 10px;">estimated monthly loss</div>
+                <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 20px; line-height: 1.6;">Based on a conservative 15% recovery rate<br>on re-engaged leads.</p>
+                <a href="demo.html" class="btn-glow" style="width: 100%; margin-top: 32px; padding: 18px; justify-content: center; font-weight: 800;">Book Free Audit →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: HOW PRICING WORKS -->
+    <section class="process-section">
+        <h2 class="text-h2 reveal">How We Decide Your Quote</h2>
+        <div class="process-grid reveal">
+            <div class="process-step">
+                <div class="step-icon">🗓️</div>
+                <h3>Free Audit Call</h3>
+                <p>30 minutes to understand your business, volume, and requirements.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-icon">📋</div>
+                <h3>Custom Proposal</h3>
+                <p>We send a detailed proposal within 24 hours — scope, deliverables, and investment.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-icon">✅</div>
+                <h3>You Decide</h3>
+                <p>No pressure. Review the proposal. Ask questions. Decide when you are ready.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-icon">🚀</div>
+                <h3>We Build</h3>
+                <p>Once confirmed, your build starts within 5 working days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FAQ -->
+    <section class="faq-section">
+        <div style="text-align: center;">
+            <h2 class="text-h2 reveal">Pricing Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item reveal">
+                <div class="faq-q">How do you decide the price for my project? <span class="faq-icon">▼</span></div>
+                <div class="faq-a">Every project is scoped individually based on your industry, number of integrations,
+                    conversation volume, and support requirements. We never charge a flat rate because no two businesses
+                    are the same.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">Do you charge in INR or AED? <span class="faq-icon">▼</span></div>
+                <div class="faq-a">Both. Indian clients are quoted in INR. UAE clients in AED. We also work with
+                    international clients in USD.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">Is there a monthly cost after the setup? <span class="faq-icon">▼</span></div>
+                <div class="faq-a">Yes — we offer optional monthly retainers for ongoing support, monitoring, and
+                    optimisation. This is always quoted separately and is never mandatory.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">Can I pay in instalments? <span class="faq-icon">▼</span></div>
+                <div class="faq-a">Yes. We typically structure projects as 50% on start and 50% on delivery. Flexible
+                    arrangements are available for larger projects.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">What if I need changes after launch? <span class="faq-icon">▼</span></div>
+                <div class="faq-a">All packages include a post-launch support period. Changes within scope are included.
+                    Out-of-scope additions are quoted separately and approved before any work begins.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">Can I see full deliverables before committing? <span class="faq-icon">▼</span></div>
+                <div class="faq-a">Absolutely. Your proposal includes a complete deliverables list, timeline, and scope
+                    before you confirm anything.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: BOTTOM CTA -->
+    <section class="bottom-cta">
+        <div class="reveal">
+            <h2 class="text-h2" style="color: #fff; margin-bottom: 16px;">Every Quote Starts With a Free 30-Minute Call.
+            </h2>
+            <p class="text-body-large" style="opacity: 0.8; margin-bottom: 40px;">No commitment. No pressure. Just a
+                clear picture of what automation can do for your business.</p>
+            <a href="demo.html" class="btn-glow"
+                style="padding: 20px 48px; border-radius: 12px; font-size: 18px;">Book Free Audit →</a>
+            <p style="margin-top: 24px; font-size: 14px; color: var(--color-text-muted);">Aakash Bhavarkar joins every
+                discovery call personally.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+        <footer class="footer-new">
+        <div class="footer-glow-line"></div>
+        <div class="footer-container">
+            <div class="footer-grid-new">
+                <!-- Col 1: Brand & Socials -->
+                <div class="footer-brand-new">
+                    <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+                        <span class="nav-wordmark">Data Agent Services</span>
+                    </a>
+                    <p class="footer-tagline">
+                        AI Infrastructure for Indian Businesses.<br>
+                        Built for Clinics, Real Estate, and Schools.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/company/dataagent-services" class="social-glass linkedin" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/data_agent_services/" class="social-glass instagram" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61573865070749" class="social-glass facebook" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                        <a href="https://wa.me/916264149778" class="social-glass whatsapp" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.473-1.761-1.646-2.06-.173-.301-.018-.464.13-.614.134-.136.3-.313.448-.47.149-.158.199-.27.298-.452.099-.18.05-.338-.024-.486-.075-.15-.67-1.618-.918-2.215-.242-.58-.487-.5-.67-.508-.173-.008-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">SERVICES</span>
+                    <a href="services.html" class="footer-link">WhatsApp AI Agent</a>
+                    <a href="services.html" class="footer-link">n8n Automation</a>
+                    <a href="services.html" class="footer-link">Lead Nurturing</a>
+                    <a href="services.html" class="footer-link">Industry Solutions</a>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">COMPANY</span>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="pricing.html" class="footer-link">Pricing</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">CONTACT</span>
+                    <a href="mailto:contactus@dataagent.in" class="footer-contact-item is-link">✉ contactus@dataagent.in</a>
+                    <a href="tel:+916264149778" class="footer-contact-item is-link">📞 +91 62641 49778</a>
+                    <div class="footer-contact-item">📍 Indore, Madhya Pradesh, India</div>
+                    <a href="https://wa.me/916264149778" class="footer-wa-cta">
+                        💬 Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom-bar">
+                <span class="footer-bottom-text">© 2026 Data Agent Services.</span>
+                <div class="footer-legal-links" style="display: flex; gap: 20px;">
+                    <a href="privacy.html" class="footer-bottom-text" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="terms.html" class="footer-bottom-text" style="text-decoration: none;">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="navbar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const q = item.querySelector('.faq-q');
+                q.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) item.classList.add('active');
+                });
+            });
+
+            // ROI Calculator
+            const slider = document.getElementById('leads-slider');
+            const leadsVal = document.getElementById('leads-val');
+            const leadInput = document.getElementById('lead-value-input');
+            const resultDisplay = document.getElementById('roi-result-display');
+
+            const calculateROI = () => {
+                const leads = parseInt(slider.value);
+                const value = parseFloat(leadInput.value);
+                leadsVal.innerText = leads;
+
+                if (isNaN(value) || value <= 0) {
+                    resultDisplay.innerText = "CONTACT FOR QUOTE";
+                    resultDisplay.style.fontSize = "32px";
+                    resultDisplay.style.color = "rgba(255,255,255,0.4)";
+                    resultDisplay.style.textShadow = "none";
+                    return;
+                }
+
+                // Recovery Rate = 15% (0.15)
+                const monthlyLoss = Math.round(leads * value * 0.15);
+                const formattedLoss = new Intl.NumberFormat('en-IN').format(monthlyLoss);
+                
+                resultDisplay.innerText = formattedLoss + "+";
+                resultDisplay.style.fontSize = "80px";
+                resultDisplay.style.color = "var(--color-brand-teal)";
+                resultDisplay.style.textShadow = "0 0 30px rgba(244, 139, 105, 0.4)";
+                resultDisplay.style.fontWeight = "800";
+            };
+
+            slider.addEventListener('input', calculateROI);
+            leadInput.addEventListener('input', calculateROI);
+            
+            // Initial call
+            calculateROI();
+
+            // Reveal animations
+            const observerOptions = {
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00E5FF" />
+            <stop offset="40%" stop-color="#3B5998" />
+            <stop offset="100%" stop-color="#9C27B0" />
+        </linearGradient>
+    </defs>
+    <!-- Chat bubble outline with gap -->
+    <path d="M7 8V6C7 4.895 7.895 4 9 4H18C19.105 4 20 4.895 20 6V16C20 17.105 19.105 18 18 18H11.5M7 14.5V21L11.5 18" stroke="url(#logoGrad)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Inner text lines -->
+    <path d="M11 9.5H16" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M11 13.5H16" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Circuit nodes entering from the left -->
+    <path d="M4 7.5H7.5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="8.5" cy="7.5" r="1.2" fill="url(#logoGrad)"/>
+    <circle cx="3" cy="7.5" r="0.8" fill="url(#logoGrad)"/>
+    <path d="M2 13C2 13 3.5 10 6.5 11.5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="7.5" cy="11.5" r="1.2" fill="url(#logoGrad)"/>
+    <circle cx="1.5" cy="13" r="0.8" fill="url(#logoGrad)"/>
+    <path d="M4.5 15.5H7" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="8" cy="15.5" r="1.2" fill="url(#logoGrad)"/>
+</svg>

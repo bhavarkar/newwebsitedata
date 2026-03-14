@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Agent Services — AI Automation for India & UAE</title>
+    <meta name="description"
+        content="Custom WhatsApp AI Agents and n8n Automation built for Clinics, Real Estate and Schools across India and UAE. Book your free Revenue Audit today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="design-tokens.css">
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ─── RESET ─────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--color-bg-primary);
+            color: var(--color-text-white);
+            overflow-x: hidden;
+        }
+
+        /* ─── HERO WRAPPER ───────────────────────────── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            padding: 120px 5% 80px;
+        }
+
+        /* ─── GRADIENT MESH ORB BACKGROUND ──────────── */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: drift 14s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--color-brand-teal), transparent 70%);
+            top: -200px;
+            left: -150px;
+            animation-duration: 16s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--color-brand-amber), transparent 70%);
+            bottom: -200px;
+            right: 10%;
+            animation-duration: 20s;
+            animation-delay: -6s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #1a4080, transparent 70%);
+            top: 30%;
+            left: 40%;
+            animation-duration: 18s;
+            animation-delay: -3s;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(40px, -30px) scale(1.05);
+            }
+
+            66% {
+                transform: translate(-20px, 40px) scale(0.97);
+            }
+
+            100% {
+                transform: translate(30px, 20px) scale(1.03);
+            }
+        }
+
+        /* ─── DOT GRID OVERLAY ───────────────────────── */
+        .hero-dots {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* ─── HERO CONTENT LAYOUT ────────────────────── */
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ─── LEFT CONTENT ───────────────────────────── */
+        .hero-left {
+            max-width: 680px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(244, 139, 105, 0.12);
+            border: 1px solid rgba(244, 139, 105, 0.3);
+            color: var(--color-brand-teal);
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.1s forwards;
+        }
+
+        .eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--color-brand-teal);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        .hero-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(44px, 5.5vw, 72px);
+            font-weight: 800;
+            color: var(--color-text-white);
+            line-height: 1.1;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.25s forwards;
+        }
+
+        .hero-h1-line2 {
+            display: block;
+            color: var(--color-text-white);
+        }
+
+        /* AI? word + animated SVG underline */
+        .ai-word {
+            position: relative;
+            display: inline-block;
+            color: var(--color-brand-teal);
+        }
+
+        .ai-underline {
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            overflow: visible;
+        }
+
+        .ai-underline path {
+            stroke: var(--color-brand-teal);
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-dasharray: 120;
+            stroke-dashoffset: 120;
+            animation: drawLine 0.8s ease 1s forwards;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .hero-sub {
+            font-family: var(--font-body);
+            font-size: 18px;
+            color: var(--color-text-muted);
+            line-height: 1.65;
+            margin-top: 20px;
+            margin-bottom: 36px;
+            max-width: 520px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.45s forwards;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 18px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.6s forwards;
+        }
+
+        .btn-watch {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 1.5px solid var(--color-brand-teal);
+            color: var(--color-brand-teal);
+            border-radius: 8px;
+            padding: 14px 24px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-watch:hover {
+            background: var(--color-brand-teal);
+            color: var(--color-text-white);
+        }
+
+        .play-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--color-brand-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.2s ease;
+        }
+
+        .btn-watch:hover .play-icon {
+            background: var(--color-text-white);
+            color: var(--color-brand-teal);
+        }
+
+        .hero-microcopy {
+            font-family: var(--font-body);
+            font-size: 12px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.75s forwards;
+        }
+
+        .microcopy-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--color-text-muted);
+            border-radius: 50%;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ─── RIGHT: SVG WORKFLOW DIAGRAM ────────────── */
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+
+        .workflow-card {
+            background: rgba(15, 30, 55, 0.7);
+            border: 1px solid rgba(244, 139, 105, 0.15);
+            border-radius: 24px;
+            padding: 40px 32px;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 480px;
+            position: relative;
+        }
+
+        .chat-bubble {
+            position: absolute;
+            top: -50px;
+            left: 20px;
+            background: var(--color-text-white);
+            color: #111;
+            border-radius: 16px 16px 16px 4px;
+            padding: 10px 16px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+            animation: floatBubble 4s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        .chat-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 16px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 9px solid var(--color-text-white);
+        }
+
+        @keyframes floatBubble {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* ── SVG Diagram ── */
+        .workflow-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Node Pulse animation */
+        .node-pulse {
+            animation: nodePulse 2.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes nodePulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                r: 28;
+            }
+
+            50% {
+                opacity: 0.7;
+                r: 36;
+            }
+        }
+
+        /* Dashed line moving dots */
+        .flow-path {
+            stroke-dasharray: 6 10;
+            animation: flowDash 1.5s linear infinite;
+        }
+
+        @keyframes flowDash {
+            to {
+                stroke-dashoffset: -32;
+            }
+        }
+
+        /* Moving dot along path */
+        .flow-dot {
+            animation: moveDot 2s linear infinite;
+        }
+
+        .flow-dot-2 {
+            animation: moveDot 2s linear 0.6s infinite;
+        }
+
+        .flow-dot-3 {
+            animation: moveDot 2s linear 1.2s infinite;
+        }
+
+        @keyframes moveDot {
+            0% {
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* ─── TRUST BAR ───────────────────────────────── */
+        .trust-bar {
+            position: relative;
+            z-index: 2;
+            padding: 32px 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .trust-label {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-brand-teal);
+            text-align: center;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 1.2s forwards;
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 1.4s forwards;
+        }
+
+        .trust-logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: opacity 0.3s ease, filter 0.3s ease;
+            cursor: default;
+        }
+
+        .trust-logo-item:hover {
+            opacity: 0.9;
+            filter: grayscale(0%);
+        }
+
+        .trust-logo-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-logo-name {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--color-text-muted);
+            white-space: nowrap;
+        }
+
+        /* ─── MARQUEE (mobile) ───────────────────────── */
+        @media (max-width: 767px) {
+            .trust-logos {
+                flex-wrap: nowrap;
+                overflow: hidden;
+                justify-content: flex-start;
+            }
+
+            .trust-logos-inner {
+                display: flex;
+                gap: 48px;
+                animation: marquee 14s linear infinite;
+                white-space: nowrap;
+                align-items: center;
+            }
+
+            @keyframes marquee {
+                from {
+                    transform: translateX(0);
+                }
+
+                to {
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            .trust-logos-inner {
+                display: contents;
+            }
+        }
+
+        /* ─── RESPONSIVE ─────────────────────────────── */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-left {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-eyebrow,
+            .hero-ctas,
+            .hero-microcopy {
+                justify-content: center;
+            }
+
+            .hero-right {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+
+<body>
+
+    <!-- Include Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            
+            <a href="/" class="logo-text">Data Agent Services</a>
+        </div>
+        <div class="nav-center">
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#industries" class="nav-link">Industries</a>
+            <a href="#case-studies" class="nav-link">Case Studies</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#blog" class="nav-link">Blog</a>
+        </div>
+        <div class="nav-right">
+            <button class="btn-primary btn-small">Book a Demo</button>
+            <button class="btn-icon" aria-label="WhatsApp">
+                
+            </button>
+            <button class="mobile-menu-btn" aria-label="Open Menu">
+                
+            </button>
+        </div>
+    </nav>
+
+    <!-- ─── HERO SECTION ─────────────────────────────────── -->
+    <section class="hero">
+        <!-- Animated Gradient Orbs -->
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <!-- Dot Grid Overlay -->
+        <div class="hero-dots"></div>
+
+        <div class="hero-inner">
+            <!-- LEFT CONTENT -->
+            <div class="hero-left">
+
+                <!-- Eyebrow Badge -->
+                <div class="hero-eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    TRUSTED BY 20+ BUSINESSES · INDIA &amp; UAE
+                </div>
+
+                <!-- H1 with animated underline on "AI?" -->
+                <h1 class="hero-h1">
+                    Your Business Runs 24/7<br>on WhatsApp.
+                    <span class="hero-h1-line2">
+                        Does Your <span class="ai-word">AI?
+                            <svg class="ai-underline" viewBox="0 0 90 10" preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M2,7 Q20,2 45,6 Q70,10 88,5" />
+                            </svg>
+                        </span>
+                    </span>
+                </h1>
+
+                <!-- Subheading -->
+                <p class="hero-sub">
+                    Custom WhatsApp AI Agents + n8n Automation — Built for Clinics, Real Estate &amp; Schools across
+                    India and UAE.
+                </p>
+
+                <!-- CTAs -->
+                <div class="hero-ctas">
+                    <a href="#book" class="btn-glow">
+                        Book Free Revenue Audit
+                        
+                    </a>
+                    <a href="#demo" class="btn-watch">
+                        <span class="play-icon">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </span>
+                        Watch 90-sec Demo
+                    </a>
+                </div>
+
+                <!-- Micro-copy -->
+                <div class="hero-microcopy">
+                    <span>No commitment</span>
+                    <span class="microcopy-dot"></span>
+                    <span>30-minute call</span>
+                    <span class="microcopy-dot"></span>
+                    <span>Results in 30 days</span>
+                </div>
+            </div>
+
+            <!-- RIGHT: Animated Workflow Diagram -->
+            <div class="hero-right">
+                <div class="workflow-card">
+
+                    <!-- Floating Chat Bubble -->
+                    <div class="chat-bubble">
+                        💬 Hi, I want to book an appointment 🙏
+                    </div>
+
+                    <svg class="workflow-svg" viewBox="0 0 400 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="glow-teal">
+                                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                            <filter id="glow-soft">
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- ── WHATSAPP NODE (Left) ── -->
+                        <g transform="translate(44, 140)">
+                            <!-- Glow ring -->
+                            <circle cx="36" cy="36" r="44" fill="rgba(37,211,102,0.08)" />
+                            <circle cx="36" cy="36" r="36" fill="#1a2e1f" stroke="#25D366" stroke-width="1.5" />
+                            <!-- WhatsApp Icon -->
+                            <g transform="translate(14, 14) scale(0.9)">
+                                <path
+                                    d="M28.8 3.6C15.5 3.6 4.8 14.3 4.8 27.6c0 4.3 1.2 8.4 3.2 11.9L4 48l9-2.8c3.3 1.7 7 2.7 11 2.7C37.3 47.9 48 37.2 48 23.9 48 14.8 40.5 6.2 28.8 3.6zm.2 40.2c-3.7 0-7.1-.9-10.1-2.6l-.7-.4-7.4 2.4 2-6.9-.5-.8c-1.9-3.2-3-6.8-3-10.6 0-11.3 9.2-20.5 20.5-20.5 5.5 0 10.6 2.1 14.4 5.9 3.8 3.8 5.9 8.8 5.9 14.3.1 11.3-9.1 20.2-21.1 20.2z"
+                                    fill="#25D366" />
+                            </g>
+                            <text x="36" y="82" text-anchor="middle" font-family="DM Sans" font-size="11"
+                                fill="#25D366">WhatsApp</text>
+                        </g>
+
+                        <!-- ── HORIZONTAL ANIMATED LINE → AI NODE ── -->
+                        <line x1="130" y1="176" x2="180" y2="176" stroke="#F48B69" stroke-width="1.5"
+                            class="flow-path" />
+                        <!-- Arrow -->
+                        <polyline points="175,171 182,176 175,181" stroke="#F48B69" stroke-width="1.5" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- ── AI BRAIN NODE (Centre) ── -->
+                        <g transform="translate(182, 140)" filter="url(#glow-teal)">
+                            <!-- Outer pulse ring -->
+                            <circle cx="36" cy="36" r="52" fill="rgba(0,201,177,0.06)" class="node-pulse" />
+                            <circle cx="36" cy="36" r="36" fill="#0d2535" stroke="#F48B69" stroke-width="2" />
+                            <!-- Brain / AI icon made from SVG paths -->
+                            <g transform="translate(12,10)">
+                                <!-- simplified circuit brain shape -->
+                                <circle cx="24" cy="26" r="14" stroke="#F48B69" stroke-width="1.5" fill="none" />
+                                <line x1="24" y1="12" x2="24" y2="6" stroke="#F48B69" stroke-width="1.5" />
+                                <line x1="10" y1="26" x2="4" y2="26" stroke="#F48B69" stroke-width="1.5" />
+                                <line x1="38" y1="26" x2="44" y2="26" stroke="#F48B69" stroke-width="1.5" />
+                                <circle cx="24" cy="26" r="5" fill="#F48B69" opacity="0.8" />
+                                <circle cx="24" cy="6" r="2" fill="#F48B69" />
+                                <circle cx="4" cy="26" r="2" fill="#F48B69" />
+                                <circle cx="44" cy="26" r="2" fill="#F48B69" />
+                            </g>
+                            <text x="36" y="84" text-anchor="middle" font-family="DM Sans" font-size="11"
+                                fill="#F48B69">AI Agent</text>
+                        </g>
+
+                        <!-- ── LINES TO 3 BRANCHES ── -->
+                        <!-- Branch 1: Top-right to Calendar -->
+                        <line x1="254" y1="165" x2="300" y2="90" stroke="#F48B69" stroke-width="1.2"
+                            class="flow-path" />
+                        <polyline points="296,93 303,88 304,96" stroke="#F48B69" stroke-width="1.2" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- Branch 2: Straight right to Sheets -->
+                        <line x1="256" y1="176" x2="300" y2="176" stroke="#F48B69" stroke-width="1.2"
+                            class="flow-path" />
+                        <polyline points="295,171 302,176 295,181" stroke="#F48B69" stroke-width="1.2" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- Branch 3: Bottom-right to Telegram -->
+                        <line x1="254" y1="188" x2="300" y2="260" stroke="#F48B69" stroke-width="1.2"
+                            class="flow-path" />
+                        <polyline points="296,256 303,263 296,268" stroke="#F48B69" stroke-width="1.2" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- ── GOOGLE CALENDAR NODE (Top Right) ── -->
+                        <g transform="translate(300, 52)">
+                            <circle cx="30" cy="30" r="30" fill="#1e2a3a" stroke="rgba(0,201,177,0.3)"
+                                stroke-width="1" />
+                            <!-- Calendar icon -->
+                            <rect x="14" y="16" width="32" height="28" rx="3" stroke="#EA4335" stroke-width="1.5"
+                                fill="none" />
+                            <line x1="14" y1="24" x2="46" y2="24" stroke="#EA4335" stroke-width="1.5" />
+                            <rect x="19" y="28" width="6" height="6" rx="1" fill="#34A853" />
+                            <rect x="27" y="28" width="6" height="6" rx="1" fill="#FBBC04" />
+                            <rect x="35" y="28" width="6" height="6" rx="1" fill="#EA4335" />
+                            <rect x="19" y="36" width="6" height="5" rx="1" fill="#4285F4" />
+                            <text x="30" y="70" text-anchor="middle" font-family="DM Sans" font-size="9"
+                                fill="#718096">Calendar</text>
+                        </g>
+
+                        <!-- ── GOOGLE SHEETS NODE (Middle Right) ── -->
+                        <g transform="translate(300, 140)">
+                            <circle cx="30" cy="30" r="30" fill="#1e2a3a" stroke="rgba(0,201,177,0.3)"
+                                stroke-width="1" />
+                            <!-- Sheets icon -->
+                            <rect x="16" y="12" width="28" height="36" rx="2" fill="#0F9D58" opacity="0.15"
+                                stroke="#0F9D58" stroke-width="1.5" />
+                            <line x1="22" y1="20" x2="38" y2="20" stroke="#0F9D58" stroke-width="1.2" />
+                            <line x1="22" y1="26" x2="38" y2="26" stroke="#0F9D58" stroke-width="1.2" />
+                            <line x1="22" y1="32" x2="38" y2="32" stroke="#0F9D58" stroke-width="1.2" />
+                            <line x1="30" y1="12" x2="30" y2="48" stroke="#0F9D58" stroke-width="1.2" />
+                            <text x="30" y="70" text-anchor="middle" font-family="DM Sans" font-size="9"
+                                fill="#718096">Sheets</text>
+                        </g>
+
+                        <!-- ── TELEGRAM NODE (Bottom Right) ── -->
+                        <g transform="translate(300, 228)">
+                            <circle cx="30" cy="30" r="30" fill="#1e2a3a" stroke="rgba(0,201,177,0.3)"
+                                stroke-width="1" />
+                            <!-- Telegram icon -->
+                            <circle cx="30" cy="30" r="16" fill="#2AABEE" opacity="0.2" />
+                            <path d="M20,28 L40,20 L34,40 L29,35 L24,38 Z" stroke="#2AABEE" stroke-width="1.5"
+                                fill="none" stroke-linejoin="round" stroke-linecap="round" />
+                            <line x1="29" y1="35" x2="40" y2="20" stroke="#2AABEE" stroke-width="1.2" />
+                            <text x="30" y="70" text-anchor="middle" font-family="DM Sans" font-size="9"
+                                fill="#718096">Telegram</text>
+                        </g>
+
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRUST BAR -->
+        <div class="trust-bar">
+            <p class="trust-label">POWERED BY</p>
+            <div class="trust-logos">
+                <div class="trust-logos-inner" id="logo-track">
+                    <!-- WhatsApp Business API -->
+                    <div class="trust-logo-item">
+                        
+                        </div>
+                        <span class="trust-logo-name">WhatsApp API</span>
+                    </div>
+
+                    <!-- Google Gemini -->
+                    <div class="trust-logo-item">
+                        
+                        </div>
+                        <span class="trust-logo-name">Google Gemini</span>
+                    </div>
+
+                    <!-- n8n -->
+                    <div class="trust-logo-item">
+                        
+                        </div>
+                        <span class="trust-logo-name">n8n</span>
+                    </div>
+
+                    <!-- Supabase -->
+                    <div class="trust-logo-item">
+                        
+                        </div>
+                        <span class="trust-logo-name">Supabase</span>
+                    </div>
+
+                    <!-- Pinecone -->
+                    <div class="trust-logo-item">
+                        
+                        </div>
+                        <span class="trust-logo-name">Pinecone</span>
+                    </div>
+
+                    <!-- Google Calendar -->
+                    <div class="trust-logo-item">
+                        
+                        </div>
+                        <span class="trust-logo-name">Google Calendar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        // Duplicate logos for seamless marquee on mobile
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+            const track = document.getElementById('logo-track');
+            track.innerHTML += track.innerHTML;
+        }
+    </script>
+</body>
+
+</html>

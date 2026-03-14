@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact — Let's Automate Your Business | Data Agent Services</title>
+    <meta name="description"
+        content="Get in touch with Aakash Bhavarkar. Chat on WhatsApp, send a message, or book a free 30-minute revenue audit for your business in India or UAE.">
+    <link rel="canonical" href="https://www.dataagent.in/contact">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ════════════════════════════════════════
+           CONTACT PAGE SPECIFIC STYLES
+        ════════════════════════════════════════ */
+
+        /* 1. HERO SECTION */
+        .contact-hero {
+            background-color: transparent;
+            padding: 180px 5% 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-dot-grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(244, 139, 105, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .contact-hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow-chip {
+            background: rgba(244, 139, 105, 0.1);
+            color: var(--color-brand-teal);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(244, 139, 105, 0.2);
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .hero-h1 {
+            color: var(--color-text-white);
+            max-width: 900px;
+            margin-bottom: 24px;
+        }
+
+        .hero-sub {
+            color: var(--color-text-muted);
+            font-size: 20px;
+            max-width: 750px;
+            line-height: 1.7;
+        }
+
+        /* 2. MAIN CONTACT BLOCK */
+        .contact-section {
+            padding: 100px 5%;
+            background: var(--color-glass-bg);
+        }
+
+        .main-contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .wa-cta-main {
+            background-color: #25D366;
+            color: #fff;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.15);
+        }
+
+        .wa-cta-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.25);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .detail-row {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .detail-icon {
+            font-size: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-brand-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .detail-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .detail-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--color-text-white);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .detail-value:hover {
+            color: var(--color-brand-teal);
+        }
+
+        .response-chip {
+            background: rgba(244, 139, 105, 0.1);
+            color: var(--color-brand-teal);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .market-info {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+        }
+
+        .market-info p {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-text-body);
+            margin-bottom: 12px;
+        }
+
+        .market-chips {
+            display: flex;
+            gap: 8px;
+        }
+
+        .market-chip {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 240px;
+            border-radius: 16px;
+            border: 1px solid rgba(244, 139, 105, 0.2);
+            overflow: hidden;
+            background: #eee;
+        }
+
+        /* FORM STYLES */
+        .contact-form-card {
+            background: var(--color-glass-bg);
+            padding: 48px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .form-h3 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--color-text-white);
+            margin-bottom: 32px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-input {
+            height: 48px;
+            border: 1.5px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 0 16px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--color-text-white);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-brand-teal);
+            box-shadow: 0 0 0 4px rgba(244, 139, 105, 0.1);
+        }
+
+        .form-textarea {
+            padding: 16px;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .phone-field {
+            display: flex;
+            gap: 8px;
+        }
+
+        .country-select {
+            width: 80px;
+            flex-shrink: 0;
+            padding: 0 8px;
+            cursor: pointer;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+
+        .btn-submit {
+            height: 56px;
+            background: var(--color-brand-teal);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            filter: brightness(110%);
+            transform: translateY(-2px);
+        }
+
+        .security-note {
+            margin-top: 12px;
+            font-size: 10px;
+            color: var(--color-text-muted);
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Success State */
+        .success-state {
+            display: none;
+            background: var(--color-brand-teal);
+            color: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        /* 3. BOOK A DEMO */
+        .demo-section {
+            padding: 100px 5%;
+            background: rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .demo-points {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 40px 0 60px;
+            flex-wrap: wrap;
+        }
+
+        .demo-point {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--color-text-white);
+        }
+
+        .checkmark {
+            color: var(--color-brand-teal);
+            font-weight: 900;
+        }
+
+        .cal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--color-glass-bg);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            min-height: 500px;
+        }
+
+        .cal-note {
+            margin-top: 24px;
+            color: var(--color-text-muted);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* 4. FAQ STRIP */
+        .faq-section {
+            padding: 100px 5%;
+            background: var(--color-glass-bg);
+        }
+
+        .faq-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .faq-item h4 {
+            color: var(--color-text-white);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1023px) {
+            .main-contact-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .contact-sidebar {
+                order: 2;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
+
+            .demo-points {
+                flex-direction: column;
+                align-items: flex-start;
+                width: fit-content;
+                margin-inline: auto;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-h1 {
+                font-size: 40px;
+            }
+
+            .contact-form-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo"><span class="nav-wordmark" style="color: white; font-weight: 700; font-family: 'DM Sans', sans-serif;">Data Agent Services</span></a>
+        <div class="nav-center">
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="case-studies.html" class="nav-link">Case Studies</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+        </div>
+        <div class="nav-right">
+            <a href="demo.html" class="btn-demo"
+                style="background: var(--color-brand-teal); color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px;">Book
+                Free Audit</a>
+            <button class="hamburger" id="hamb"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="drawer">
+        <div class="drawer-links">
+            <a href="services.html">Services</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+        </div>
+        <div class="drawer-bottom">
+            <a href="demo.html"
+                style="background: var(--color-brand-teal); text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Book
+                Free Audit</a>
+            <a href="https://wa.me/918827939677"
+                style="background:#25D366; text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Chat
+                on WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- SECTION 1: HERO -->
+    <header class="contact-hero">
+        <div class="hero-dot-grid"></div>
+        <span class="eyebrow-chip reveal">GET IN TOUCH</span>
+        <h1 class="hero-h1 h1 reveal">Let's Talk About Automating Your Business</h1>
+        <p class="hero-sub reveal">Send a message, book a call, or just say hello on WhatsApp. Aakash responds to every
+            inquiry personally.</p>
+    </header>
+
+    <!-- SECTION 2: MAIN CONTACT BLOCK -->
+    <section class="contact-section">
+        <div class="main-contact-grid">
+            <!-- Sidebar -->
+            <div class="contact-sidebar reveal">
+                <a href="https://wa.me/918827939677?text=Hi%20Aakash,%20I%20am%20interested%20in%20a%20WhatsApp%20AI%20agent%20for%20my%20business."
+                    target="_blank" class="wa-cta-main">
+                    💬 Chat on WhatsApp Now
+                </a>
+
+                <div class="contact-details">
+                    <div class="detail-row">
+                        <div class="detail-icon">📧</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Email</span>
+                            <a href="mailto:contactus@dataagent.in" class="detail-value">contactus@dataagent.in</a>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-icon">📞</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Phone</span>
+                            <a href="tel:+916264149778" class="detail-value">+91 62641 49778</a>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-icon">🌐</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Website</span>
+                            <span class="detail-value">www.dataagent.in</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">Indore, Madhya Pradesh, India</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-icon">💼</div>
+                        <div class="detail-text">
+                            <span class="detail-label">LinkedIn</span>
+                            <a href="https://linkedin.com/in/aakashbhavarkar" target="_blank"
+                                class="detail-value">Aakash Bhavarkar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="response-chip">⚡ Typically responds within 2 hours (IST)</span>
+
+                <div class="market-info">
+                    <p>Serving clients across:</p>
+                    <div class="market-chips">
+                        <span class="market-chip">🇮🇳 India</span>
+                        <span class="market-chip">🇦🇪 UAE</span>
+                    </div>
+                </div>
+
+                <div class="map-placeholder">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117763.555303498!2d75.79381016641578!3d22.7239108169996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b4cbd13%3A0x1ec466e60b09f4e2!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1709600000000!5m2!1sen!2sin"
+                        width="100%" height="240" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="contact-form-card reveal">
+                <h3 class="form-h3">Send a Message</h3>
+                <form id="contact-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="e.g. Rahul Sharma" required>
+                            <label class="form-note">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="phone-field">
+                                <select class="form-input country-select">
+                                    <option value="IN">+91</option>
+                                    <option value="AE">+971</option>
+                                </select>
+                                <input type="tel" class="form-input" placeholder="Your WhatsApp number"
+                                    style="width: 100%;" required>
+                            </div>
+                            <label class="form-note">WhatsApp Number</label>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-input" style="width: 100%;">
+                                <option value="" disabled selected>Select industry</option>
+                                <option>Clinic / Hospital</option>
+                                <option>Real Estate Agency</option>
+                                <option>School / Coaching Institute</option>
+                                <option>E-commerce</option>
+                                <option>Other</option>
+                            </select>
+                            <label class="form-note">Business Type</label>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-input" style="width: 100%;">
+                                <option value="India">India</option>
+                                <option value="UAE">UAE</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <label class="form-note">Your Country — Helps us quote correctly</label>
+                        </div>
+                        <div class="form-group full">
+                            <textarea class="form-input form-textarea"
+                                placeholder="e.g. We get 50+ WhatsApp messages a day but can't respond after 6pm. We're losing bookings..."
+                                required></textarea>
+                            <label class="form-note">What is your biggest challenge?</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit" style="margin-top: 32px;">Send Message →</button>
+                    <p class="security-note">Your message is sent securely. Aakash will respond within 2 hours during
+                        business hours IST.</p>
+                </form>
+                <div id="success-msg" class="success-state">✅ Message sent! Aakash will be in touch within 2 hours.
+                    Check your WhatsApp.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: BOOK A DEMO -->
+    <section class="demo-section">
+        <div class="reveal">
+            <span class="eyebrow-chip" style="background: rgba(244, 139, 105, 0.05);">PREFER A CALL?</span>
+            <h2 class="text-h2" style="margin-top: 16px;">Book a Free 30-Minute Revenue Audit</h2>
+
+            <div class="demo-points">
+                <span class="demo-point"><span class="checkmark">✓</span> We analyse your current WhatsApp
+                    workflow</span>
+                <span class="demo-point"><span class="checkmark">✓</span> Show you a live AI demo for your
+                    industry</span>
+                <span class="demo-point"><span class="checkmark">✓</span> Give you a custom automation roadmap</span>
+            </div>
+
+            <div class="cal-container">
+                <p style="text-align: left; font-weight: 700; margin-bottom: 24px; color: var(--color-text-white);">Pick a
+                    time that works for you:</p>
+                <!-- Cal.com Embed Placeholder -->
+                <iframe src="https://cal.com/dataagent/15min" style="width: 100%; height: 500px; border: 0;" frameborder="0" allowfullscreen></iframe>
+                <p class="cal-note">Pricing is always customised by country and business size — discussed only on the
+                    call. Aakash joins every call personally.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: FAQ STRIP -->
+    <section class="faq-section">
+        <div style="text-align: center;">
+            <h2 class="text-h2 reveal">Before You Reach Out</h2>
+        </div>
+        <div class="faq-grid reveal">
+            <div class="faq-item">
+                <h4>How quickly do you respond?</h4>
+                <p>Within 2 hours during IST business hours. WhatsApp is the fastest way to reach Aakash.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do you take international clients?</h4>
+                <p>Yes. We actively work with clients in India and UAE. Remote delivery for all projects.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What happens on the first call?</h4>
+                <p>It's a free 30-minute audit. We map your workflow, show a relevant demo, and give you a roadmap. No
+                    selling, no pressure.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do I need to prepare anything?</h4>
+                <p>Just come with your biggest WhatsApp pain point. We will handle the rest.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    
+        <!-- ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ -->
+    <footer class="footer-new">
+        <div class="footer-glow-line"></div>
+        <div class="footer-container">
+            <div class="footer-grid-new">
+                <!-- Col 1: Brand & Socials -->
+                <div class="footer-brand-new">
+                    <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; vertical-align: middle;">
+    <defs>
+        <linearGradient id="logoGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00E5FF" />
+            <stop offset="40%" stop-color="#3B5998" />
+            <stop offset="100%" stop-color="#9C27B0" />
+        </linearGradient>
+    </defs>
+    <path d="M7 8V6C7 4.895 7.895 4 9 4H18C19.105 4 20 4.895 20 6V16C20 17.105 19.105 18 18 18H11.5M7 14.5V21L11.5 18" stroke="url(#logoGradFooter)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11 9.5H16" stroke="url(#logoGradFooter)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M11 13.5H16" stroke="url(#logoGradFooter)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M4 7.5H7.5" stroke="url(#logoGradFooter)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="8.5" cy="7.5" r="1.2" fill="url(#logoGradFooter)"/>
+    <circle cx="3" cy="7.5" r="0.8" fill="url(#logoGradFooter)"/>
+    <path d="M2 13C2 13 3.5 10 6.5 11.5" stroke="url(#logoGradFooter)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="7.5" cy="11.5" r="1.2" fill="url(#logoGradFooter)"/>
+    <circle cx="1.5" cy="13" r="0.8" fill="url(#logoGradFooter)"/>
+    <path d="M4.5 15.5H7" stroke="url(#logoGradFooter)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="8" cy="15.5" r="1.2" fill="url(#logoGradFooter)"/>
+</svg><span class="nav-wordmark">Data Agent Services</span>
+                    </a>
+                    <p class="footer-tagline">
+                        AI Infrastructure for Indian Businesses.<br>
+                        Built for Clinics, Real Estate, and Schools.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/company/dataagent-services" class="social-glass linkedin" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/data_agent_services/" class="social-glass instagram" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61573865070749" class="social-glass facebook" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                        <a href="https://wa.me/916264149778" class="social-glass whatsapp" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.473-1.761-1.646-2.06-.173-.301-.018-.464.13-.614.134-.136.3-.313.448-.47.149-.158.199-.27.298-.452.099-.18.05-.338-.024-.486-.075-.15-.67-1.618-.918-2.215-.242-.58-.487-.5-.67-.508-.173-.008-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">SERVICES</span>
+                    <a href="services.html" class="footer-link">WhatsApp AI Agent</a>
+                    <a href="services.html" class="footer-link">n8n Automation</a>
+                    <a href="services.html" class="footer-link">Lead Nurturing</a>
+                    <a href="services.html" class="footer-link">Industry Solutions</a>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">COMPANY</span>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="pricing.html" class="footer-link">Pricing</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">CONTACT</span>
+                    <a href="mailto:contactus@dataagent.in" class="footer-contact-item is-link">✉ contactus@dataagent.in</a>
+                    <a href="tel:+916264149778" class="footer-contact-item is-link">📞 +91 62641 49778</a>
+                    <div class="footer-contact-item">📍 Indore, Madhya Pradesh, India</div>
+                    <a href="https://wa.me/916264149778" class="footer-wa-cta">
+                        💬 Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom-bar">
+                <span class="footer-bottom-text">© 2026 Data Agent Services.</span>
+                <div class="footer-legal-links" style="display: flex; gap: 20px;">
+                    <a href="privacy.html" class="footer-bottom-text" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="terms.html" class="footer-bottom-text" style="text-decoration: none;">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('success-msg').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

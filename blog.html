@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WhatsApp Automation & n8n Guides | Data Agent Services Blog</title>
+    <meta name="description"
+        content="Practical tutorials and case studies on building WhatsApp AI agents, n8n workflows, and business automation — by Aakash Bhavarkar.">
+    <link rel="canonical" href="https://www.dataagent.in/blog">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ════════════════════════════════════════
+           BLOG RICH COMPONENT STYLES
+        ════════════════════════════════════════ */
+
+        /* Animation: Floating Grid Dots */
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(244, 139, 105, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 30px 30px;
+            }
+        }
+
+        .hero-blog {
+            position: relative;
+            background: var(--color-bg-primary);
+            color: #fff;
+            padding: 160px 5% 100px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-content-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Stat Chips */
+        .stat-chips {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .stat-chip {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-chip::before {
+            content: "·";
+            color: var(--color-brand-teal);
+            font-size: 24px;
+        }
+
+        .stat-chip:first-child::before {
+            display: none;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 500px;
+            margin: 48px auto 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 48px;
+            background: var(--color-glass-bg);
+            border: 2px solid transparent;
+            border-radius: 999px;
+            padding: 0 54px;
+            font-size: 16px;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-brand-teal);
+            box-shadow: 0 0 0 4px rgba(244, 139, 105, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-muted);
+            pointer-events: none;
+        }
+
+        /* Category Filter */
+        .filter-section {
+            padding: 40px 5%;
+            background: var(--color-glass-bg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .filter-chips {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .filter-chips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chip {
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border: 1px solid var(--color-bg-primary);
+            background: var(--color-glass-bg);
+            color: var(--color-text-white);
+        }
+
+        .chip.active {
+            background: var(--color-brand-teal);
+            color: #fff;
+            border-color: var(--color-brand-teal);
+            box-shadow: 0 4px 12px rgba(244, 139, 105, 0.2);
+        }
+
+        /* Featured Article */
+        .featured-section {
+            padding: 80px 5%;
+            background: var(--color-glass-bg);
+        }
+
+        .featured-card {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .featured-visual {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: var(--color-bg-primary);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(244, 139, 105, 0.2) 0%, transparent 100%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .featured-visual h3 {
+            position: relative;
+            z-index: 1;
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .featured-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: var(--color-brand-amber);
+            color: var(--color-text-white);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .featured-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .category-badge {
+            background: rgba(244, 139, 105, 0.1);
+            color: var(--color-brand-teal);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: flex-start;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--color-brand-teal);
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-chip {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-text-body);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Article Grid */
+        .grid-section {
+            padding: 80px 5%;
+            background: var(--color-glass-bg);
+        }
+
+        .grid-header {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .article-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .article-card {
+            background: var(--color-glass-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            border-top: 3px solid var(--color-brand-teal);
+        }
+
+        .card-thumb {
+            position: relative;
+            aspect-ratio: 3/2;
+            background: var(--color-bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-thumb-icon {
+            font-size: 40px;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-thumb-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(244, 139, 105, 0.15), transparent);
+        }
+
+        .card-category-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-text-white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 800;
+            z-index: 5;
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-text-white);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-excerpt {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-time {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            font-weight: 600;
+        }
+
+        .read-link {
+            color: var(--color-brand-teal);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Load More */
+        .load-more-wrap {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .btn-load-more {
+            padding: 14px 40px;
+            border-radius: 8px;
+            border: 2px solid var(--color-bg-primary);
+            background: transparent;
+            color: var(--color-text-white);
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-load-more:hover {
+            background: var(--color-bg-primary);
+            color: #fff;
+        }
+
+        /* Author Bio Strip */
+        .author-strip {
+            padding: 80px 5%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .author-box {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .author-left {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--color-brand-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-glass-bg);
+            color: var(--color-text-white);
+            flex-shrink: 0;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .author-content h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .author-title {
+            color: var(--color-brand-teal);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .author-bio {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--color-text-body);
+        }
+
+        .author-right {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: flex-end;
+        }
+
+        .cred-chips {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Newsletter */
+        .newsletter-redesign {
+            background: var(--color-bg-primary);
+            padding: 100px 5%;
+            color: #fff;
+        }
+
+        .newsletter-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .newsletter-bullets {
+            list-style: none;
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .newsletter-bullet {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bullet-icon {
+            color: var(--color-brand-teal);
+            font-weight: 900;
+        }
+
+        .sub-form-wrap {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sub-input {
+            width: 100%;
+            height: 54px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--color-glass-bg);
+            padding: 0 20px;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .sub-btn {
+            width: 100%;
+            height: 54px;
+            background: var(--color-brand-teal);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sub-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        .sub-fine-print {
+            text-align: center;
+            font-size: 11px;
+            color: var(--color-text-muted);
+            margin-top: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-card,
+            .author-box,
+            .newsletter-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .author-right {
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-blog h1 {
+                font-size: 36px;
+            }
+
+            .stat-chips {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .stat-chip::before {
+                display: none;
+            }
+
+            .author-left {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-img {
+                margin: 0 auto;
+            }
+
+            .cred-chips {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .filter-chips {
+                justify-content: flex-start;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Data Agent Automation Blog",
+      "description": "Guides and case studies on WhatsApp AI agents and n8n automation for business.",
+      "publisher": { "@type": "Organization", "name": "Data Agent Services" }
+    }
+  </script>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+
+<body>
+    <!-- ════════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- LEFT — Logo -->
+            <a href="index.html" class="nav-logo"><span class="nav-wordmark" style="color: white; font-weight: 700; font-family: 'DM Sans', sans-serif;">Data Agent Services</span></a>
+
+            <!-- CENTRE — Links -->
+            <div class="nav-links">
+                <a href="services.html" class="nav-link"><span>Services</span></a>
+                <a href="case-studies.html" class="nav-link"><span>Case Studies</span></a>
+                <a href="pricing.html" class="nav-link"><span>Pricing</span></a>
+                <a href="about.html" class="nav-link"><span>About</span></a>
+                <a href="blog.html" class="nav-link active"><span>Blog</span></a>
+                <div class="nav-indicator"></div>
+            </div>
+
+            <!-- RIGHT — Buttons -->
+            <div class="nav-actions">
+                <a href="https://cal.com/dataagent/15min" class="btn-demo">Book a Demo</a>
+                <a href="https://wa.me/916264149778" class="btn-wa-icon" aria-label="WhatsApp">
+                    
+                </a>
+                <button class="nav-hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="drawer">
+        <div class="drawer-links">
+            <a href="services.html">Services</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+        </div>
+        <div class="drawer-bottom">
+            <a href="demo.html"
+                style="background: var(--color-brand-teal); text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Book
+                Free Audit</a>
+            <a href="https://wa.me/918827939677"
+                style="background:#25D366; text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Chat
+                on WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+       SECTION 1 — HERO
+    ════════════════════════════════════════ -->
+    <header class="hero-blog">
+        <div class="grid-bg"></div>
+        <div class="hero-content-inner">
+            <h1 style="font-family: var(--font-display); font-size: 64px; font-weight: 800; line-height: 1.1;">Learn How
+                to Automate Your Business</h1>
+            <div class="stat-chips">
+                <span class="stat-chip">15+ Guides Published</span>
+                <span class="stat-chip">8 min avg read</span>
+                <span class="stat-chip">Updated Weekly</span>
+            </div>
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search guides, tutorials, case studies...">
+            </div>
+        </div>
+    </header>
+
+    <!-- ════════════════════════════════════════
+       SECTION 2 — CATEGORY FILTER
+    ════════════════════════════════════════ -->
+    <nav class="filter-section">
+        <div class="filter-chips">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="whatsapp-ai">WhatsApp AI</button>
+            <button class="chip" data-filter="n8n-automation">n8n Automation</button>
+            <button class="chip" data-filter="case-studies">Case Studies</button>
+            <button class="chip" data-filter="lead-generation">Lead Generation</button>
+            <button class="chip" data-filter="tutorials">Tutorials</button>
+            <button class="chip" data-filter="business-automation">Business Automation</button>
+        </div>
+    </nav>
+
+    <!-- ════════════════════════════════════════
+       SECTION 3 — FEATURED ARTICLE
+    ════════════════════════════════════════ -->
+    <section class="featured-section filterable-item" data-category="n8n-automation">
+        <div class="featured-card">
+            <div class="featured-visual">
+                <div class="featured-gradient"></div>
+                <h3>How to Build a WhatsApp AI Booking Agent with n8n and Google Gemini</h3>
+                <span class="featured-badge">FEATURED</span>
+            </div>
+            <div class="featured-content">
+                <span class="category-badge">n8n TUTORIAL</span>
+                <h2 style="font-family: var(--font-display); font-size: 42px; line-height: 1.2;">How to Build a WhatsApp
+                    AI Booking Agent with n8n and Google Gemini</h2>
+                <p style="font-size: 18px; color: var(--color-text-muted); line-height: 1.7;">A complete step-by-step
+                    walkthrough of building a multilingual appointment booking bot — connecting WhatsApp Business API,
+                    n8n workflows, Google Gemini AI, and Pinecone RAG. Built and deployed by Aakash Bhavarkar.</p>
+                <div class="article-meta">
+                    <div class="author-avatar">AB</div>
+                    <span>Aakash Bhavarkar · 12 min read · March 2026</span>
+                </div>
+                <div class="tag-row">
+                    <span class="tag-chip">n8n</span>
+                    <span class="tag-chip">WhatsApp API</span>
+                    <span class="tag-chip">Google Gemini</span>
+                    <span class="tag-chip">Pinecone</span>
+                </div>
+                <a href="#" class="btn-glow" style="align-self: flex-start; margin-top: 10px;">Read Full Guide →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 4 — ARTICLE GRID
+    ════════════════════════════════════════ -->
+    <section class="grid-section">
+        <div class="grid-header">
+            <h3 style="font-family: var(--font-display); font-size: 32px;">All Articles</h3>
+        </div>
+        <div class="article-grid" id="article-grid">
+            <!-- Card 1 -->
+            <article class="article-card" data-category="n8n-automation">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">⚙️</span>
+                    <span class="card-category-overlay">n8n TUTORIAL</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">How to Build a WhatsApp AI Booking Agent with n8n and Google Gemini</h3>
+                    <p class="card-excerpt">Step-by-step guide: WhatsApp API + n8n + Gemini + Pinecone. Full
+                        multilingual bot in under a week.</p>
+                    <div class="card-footer">
+                        <span class="read-time">12 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="article-card" data-category="whatsapp-ai">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">🏥</span>
+                    <span class="card-category-overlay">WHATSAPP AI</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">What is a WhatsApp AI Agent and Why Does Your Clinic Need One in 2026?</h3>
+                    <p class="card-excerpt">Clinics using WhatsApp AI agents report 3x more bookings and zero
+                        after-hours missed inquiries. Here is how it works.</p>
+                    <div class="card-footer">
+                        <span class="read-time">7 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="article-card" data-category="business-automation">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">⚡</span>
+                    <span class="card-category-overlay">BUSINESS AUTOMATION</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">n8n vs Zapier for WhatsApp Automation — Which is Better for Indian
+                        Businesses?</h3>
+                    <p class="card-excerpt">We compared both tools across cost, flexibility, and WhatsApp API support.
+                        The winner for Indian SMBs is clear.</p>
+                    <div class="card-footer">
+                        <span class="read-time">9 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="article-card" data-category="case-studies">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">📁</span>
+                    <span class="card-category-overlay">CASE STUDY</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">How We Built the Physio One AI Booking Agent — Complete Case Study</h3>
+                    <p class="card-excerpt">From missed calls to 3x bookings: the full technical breakdown of the Physio
+                        One WhatsApp AI agent.</p>
+                    <div class="card-footer">
+                        <span class="read-time">10 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="article-card" data-category="lead-generation">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">📈</span>
+                    <span class="card-category-overlay">LEAD GENERATION</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">5 WhatsApp Follow-Up Messages That Convert Cold Real Estate Leads</h3>
+                    <p class="card-excerpt">Copy these 5 message templates we use in our automated 5-day real estate
+                        follow-up sequence to recover cold leads.</p>
+                    <div class="card-footer">
+                        <span class="read-time">6 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="article-card" data-category="tutorials">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">📘</span>
+                    <span class="card-category-overlay">TUTORIAL</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Complete Guide: WhatsApp Business API Setup in India (2026 Edition)</h3>
+                    <p class="card-excerpt">Everything you need to get your WhatsApp Business API account approved,
+                        connected, and sending messages in India.</p>
+                    <div class="card-footer">
+                        <span class="read-time">11 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="article-card" data-category="n8n-automation">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">🔗</span>
+                    <span class="card-category-overlay">n8n AUTOMATION</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Connecting WhatsApp to Google Sheets for Real-Time Lead Tracking</h3>
+                    <p class="card-excerpt">Stop manually entering data. Learn how to auto-sync every WhatsApp inquiry
+                        into your sales CRM Sheet.</p>
+                    <div class="card-footer">
+                        <span class="read-time">6 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="article-card" data-category="whatsapp-ai">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">🥗</span>
+                    <span class="card-category-overlay">WHATSAPP AI</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">How a Dietitian in Mumbai Scaled to 500+ Clients Using an AI Assistant</h3>
+                    <p class="card-excerpt">A success story of automating food logs and appointment rescheduling using a
+                        custom WhatsApp bot.</p>
+                    <div class="card-footer">
+                        <span class="read-time">8 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 9 -->
+            <article class="article-card" data-category="case-studies">
+                <div class="card-thumb">
+                    <div class="card-thumb-gradient"></div>
+                    <span class="card-thumb-icon">🏢</span>
+                    <span class="card-category-overlay">CASE STUDY</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Real Estate Automation: 50% Higher Lead Retention for Dubai Property Group
+                    </h3>
+                    <p class="card-excerpt">How we solved the 'speed-to-lead' problem for a luxury real estate agency
+                        using AI-powered WhatsApp follow-ups.</p>
+                    <div class="card-footer">
+                        <span class="read-time">12 min read</span>
+                        <a href="#" class="read-link">Read →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="load-more-wrap">
+            <button class="btn-load-more">Load More Articles</button>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 6 — AUTHOR BIO STRIP
+    ════════════════════════════════════════ -->
+    <section class="author-strip">
+        <div class="author-box">
+            <div class="author-left">
+                <div class="author-img">AB</div>
+                <div class="author-content">
+                    <h3>Aakash Bhavarkar</h3>
+                    <span class="author-title">Founder — Data Agent Services · AI Automation Engineer · Indore,
+                        India</span>
+                    <p class="author-bio">All articles on this blog are written from real project experience — not
+                        theory. Every guide has been built and deployed for actual clients across India and UAE.</p>
+                </div>
+            </div>
+            <div class="author-right">
+                <div class="cred-chips">
+                    <span class="tag-chip" style="background: var(--color-brand-teal); color:#fff">6+ Years Experience</span>
+                    <span class="tag-chip" style="background: var(--color-brand-teal); color:#fff">20+ Automations
+                        Built</span>
+                    <span class="tag-chip" style="background: var(--color-brand-teal); color:#fff">India & UAE Markets</span>
+                </div>
+                <a href="#" class="btn-ghost" style="font-size: 14px; padding: 10px 20px;">Follow on LinkedIn →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 7 — NEWSLETTER
+    ════════════════════════════════════════ -->
+    <section class="newsletter-redesign">
+        <div class="newsletter-grid">
+            <div>
+                <h2 style="font-family: var(--font-display); font-size: 48px; line-height: 1.1;">Get Automation Tips
+                    Every Week</h2>
+                <p style="font-size: 18px; color: var(--color-text-muted); margin-top: 20px;">Practical WhatsApp and n8n
+                    guides — no fluff, no spam. Join 500+ business owners.</p>
+                <ul class="newsletter-bullets">
+                    <li class="newsletter-bullet"><span class="bullet-icon">✓</span> Weekly n8n workflow tutorials</li>
+                    <li class="newsletter-bullet"><span class="bullet-icon">✓</span> WhatsApp AI case studies</li>
+                    <li class="newsletter-bullet"><span class="bullet-icon">✓</span> Industry-specific automation tips
+                    </li>
+                </ul>
+            </div>
+            <div class="sub-form-wrap">
+                <input type="email" class="sub-input" placeholder="your@email.com">
+                <button class="sub-btn">Subscribe</button>
+                <p class="sub-fine-print">No spam. Unsubscribe anytime. We respect your inbox.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ -->
+        <footer class="footer-new">
+        <div class="footer-glow-line"></div>
+        <div class="footer-container">
+            <div class="footer-grid-new">
+                <!-- Col 1: Brand & Socials -->
+                <div class="footer-brand-new">
+                    <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+                        <span class="nav-wordmark">Data Agent Services</span>
+                    </a>
+                    <p class="footer-tagline">
+                        AI Infrastructure for Indian Businesses.<br>
+                        Built for Clinics, Real Estate, and Schools.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/company/dataagent-services" class="social-glass linkedin" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/data_agent_services/" class="social-glass instagram" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61573865070749" class="social-glass facebook" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                        <a href="https://wa.me/916264149778" class="social-glass whatsapp" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.473-1.761-1.646-2.06-.173-.301-.018-.464.13-.614.134-.136.3-.313.448-.47.149-.158.199-.27.298-.452.099-.18.05-.338-.024-.486-.075-.15-.67-1.618-.918-2.215-.242-.58-.487-.5-.67-.508-.173-.008-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">SERVICES</span>
+                    <a href="services.html" class="footer-link">WhatsApp AI Agent</a>
+                    <a href="services.html" class="footer-link">n8n Automation</a>
+                    <a href="services.html" class="footer-link">Lead Nurturing</a>
+                    <a href="services.html" class="footer-link">Industry Solutions</a>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">COMPANY</span>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="pricing.html" class="footer-link">Pricing</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">CONTACT</span>
+                    <a href="mailto:contactus@dataagent.in" class="footer-contact-item is-link">✉ contactus@dataagent.in</a>
+                    <a href="tel:+916264149778" class="footer-contact-item is-link">📞 +91 62641 49778</a>
+                    <div class="footer-contact-item">📍 Indore, Madhya Pradesh, India</div>
+                    <a href="https://wa.me/916264149778" class="footer-wa-cta">
+                        💬 Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom-bar">
+                <span class="footer-bottom-text">© 2026 Data Agent Services.</span>
+                <div class="footer-legal-links" style="display: flex; gap: 20px;">
+                    <a href="privacy.html" class="footer-bottom-text" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="terms.html" class="footer-bottom-text" style="text-decoration: none;">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chips = document.querySelectorAll('.chip');
+            const items = document.querySelectorAll('.filterable-item, .article-card');
+            const searchInput = document.querySelector('.search-input');
+            const gridHeader = document.querySelector('.grid-header h3');
+
+            function filterContent() {
+                const activeFilter = document.querySelector('.chip.active').getAttribute('data-filter');
+                const searchQuery = searchInput.value.toLowerCase().trim();
+
+                let visibleCount = 0;
+
+                items.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    const text = item.innerText.toLowerCase();
+
+                    const matchesFilter = activeFilter === 'all' || category === activeFilter;
+                    const matchesSearch = text.includes(searchQuery);
+
+                    if (matchesFilter && matchesSearch) {
+                        item.style.display = 'flex';
+                        if (item.classList.contains('featured-section')) item.style.display = 'block';
+
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                        visibleCount++;
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+
+                // Update Grid Header text
+                if (activeFilter === 'all') {
+                    gridHeader.textContent = searchQuery ? `Search Results for "${searchQuery}"` : 'All Articles';
+                } else {
+                    const filterName = document.querySelector('.chip.active').textContent;
+                    gridHeader.textContent = searchQuery ? `${filterName} results for "${searchQuery}"` : `${filterName} Articles`;
+                }
+            }
+
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    chips.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                    filterContent();
+
+                    // Scroll to grid if filtering (optional, but helpful on mobile)
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.filter-section').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            searchInput.addEventListener('input', () => {
+                filterContent();
+            });
+        });
+    </script>
+</body>
+
+</html>

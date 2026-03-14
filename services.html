@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Infrastructure Built for Indian Businesses | Data Agent Services</title>
+    <meta name="description"
+        content="Custom WhatsApp AI agents, n8n automation, and lead nurturing solutions designed for clinics, real estate, and schools in India. Built by Aakash Bhavarkar.">
+    <link rel="canonical" href="https://www.dataagent.in/services">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="design-tokens.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ════════════════════════════════════════
+           PREMIUM SERVICES PAGE STYLES
+        ════════════════════════════════════════ */
+
+        /* Animation: Floating Grid Dots */
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(244, 139, 105, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 30px 30px;
+            }
+        }
+
+        .services-hero {
+            background: var(--color-bg-primary);
+            position: relative;
+            overflow: hidden;
+            padding: 180px 5% 120px;
+            text-align: center;
+        }
+
+        .hero-content-p {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .eyebrow-chip {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(244, 139, 105, 0.15);
+            color: var(--color-brand-teal);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .hero-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* General Sections */
+        .service-section {
+            padding: 120px 5%;
+            overflow: hidden;
+        }
+
+        .service-section.bg-neutral {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .container-lg {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .container-lg.reversed {
+            direction: rtl;
+        }
+
+        .container-lg.reversed>* {
+            direction: ltr;
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .h2-navy {
+            font-family: var(--font-display);
+            font-size: 42px;
+            color: var(--color-text-white);
+            line-height: 1.2;
+        }
+
+        .body-p {
+            font-size: 18px;
+            color: var(--color-text-body);
+            line-height: 1.7;
+        }
+
+        .del-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .del-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: var(--color-text-white);
+            font-size: 15px;
+        }
+
+        .check-icon {
+            color: var(--color-brand-teal);
+            font-weight: 900;
+        }
+
+        /* Visual: WhatsApp Mockup */
+        .mockup-container {
+            background: var(--color-bg-primary);
+            border-radius: 32px;
+            padding: 30px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+            position: relative;
+            aspect-ratio: 4/5;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInMsg 0.5s forwards;
+        }
+
+        .chat-bubble.customer {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-bubble.ai {
+            background: var(--color-brand-teal);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        @keyframes fadeInMsg {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .typing {
+            font-style: italic;
+            font-size: 12px;
+            color: var(--color-brand-teal);
+            margin-bottom: 4px;
+        }
+
+        /* Visual: n8n Flow */
+        .n8n-flow {
+            position: relative;
+            background: var(--color-glass-bg);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid var(--color-glass-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .node {
+            background: var(--color-glass-bg);
+            border: 2px solid var(--color-glass-border);
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: absolute;
+            z-index: 2;
+        }
+
+        .node-trigger {
+            top: 10%;
+            left: 10%;
+            border-color: var(--color-brand-teal);
+        }
+
+        .node-ai {
+            top: 45%;
+            left: 40%;
+            border-color: #ff4757;
+        }
+
+        .node-sheet {
+            top: 20%;
+            right: 10%;
+        }
+
+        .node-cal {
+            top: 45%;
+            right: 10%;
+        }
+
+        .node-tg {
+            top: 70%;
+            right: 10%;
+        }
+
+        .flow-line {
+            position: absolute;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+        }
+
+        /* Visual: Timeline */
+        .timeline-box {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-glass-border);
+        }
+
+        .timeline-step {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -44px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: var(--color-brand-teal);
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 4px rgba(244, 139, 105, 0.2);
+        }
+
+        .open-badge {
+            background: rgba(244, 139, 105, 0.1);
+            color: var(--color-brand-teal);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 800;
+            margin-left: 10px;
+        }
+
+        /* Visual: Industry Grid */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ind-card {
+            background: var(--color-glass-bg);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid transparent;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: 0.3s;
+            cursor: default;
+        }
+
+        .ind-card:hover {
+            border-color: var(--color-brand-teal);
+            transform: translateY(-5px);
+        }
+
+        .ind-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .ind-title {
+            font-weight: 700;
+            color: var(--color-text-white);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .ind-desc {
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        /* Tech Stack Strip */
+        .tech-strip {
+            background: var(--color-bg-primary);
+            padding: 60px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .tech-title {
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            margin-bottom: 40px;
+        }
+
+        .marquee-wrap {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+
+        .tech-item {
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            opacity: 0.4;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .tech-item:hover {
+            opacity: 1;
+            color: var(--color-brand-teal);
+        }
+
+        .divider {
+            width: 1px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            padding: 120px 5%;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .container-lg,
+            .container-lg.reversed {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                direction: ltr;
+            }
+
+            .container-lg.reversed>* {
+                direction: ltr;
+            }
+
+            .hero-h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .h2-navy {
+                font-size: 32px;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+
+<body>
+        <!-- ════════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- LEFT — Logo -->
+            <a href="index.html" class="nav-logo"><span class="nav-wordmark" style="color: white; font-weight: 700; font-family: 'DM Sans', sans-serif;">Data Agent Services</span></a>
+
+            <!-- CENTRE — Links -->
+            <div class="nav-links">
+                <a href="services.html" class="nav-link active"><span>Services</span></a>
+                <a href="case-studies.html" class="nav-link"><span>Case Studies</span></a>
+                <a href="pricing.html" class="nav-link"><span>Pricing</span></a>
+                <a href="about.html" class="nav-link"><span>About</span></a>
+                <a href="blog.html" class="nav-link"><span>Blog</span></a>
+                <div class="nav-indicator"></div>
+            </div>
+
+            <!-- RIGHT — Buttons -->
+            <div class="nav-actions">
+                <a href="https://cal.com/dataagent/15min" class="btn-demo">Book a Demo</a>
+                <a href="https://wa.me/916264149778" class="btn-wa-icon" aria-label="WhatsApp">
+                    
+                </a>
+                <button class="nav-hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="nav-drawer" id="drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="nav-logo">
+                </a>
+            <button class="drawer-close" aria-label="Close menu">✕</button>
+        </div>
+        <div class="drawer-links">
+            <a href="services.html" class="drawer-link">Services</a>
+            <a href="case-studies.html" class="drawer-link">Case Studies</a>
+            <a href="pricing.html" class="drawer-link">Pricing</a>
+            <a href="about.html" class="drawer-link">About</a>
+            <a href="blog.html" class="drawer-link">Blog</a>
+        </div>
+        <div class="drawer-bottom">
+            <a href="https://wa.me/916264149778" class="btn-whatsapp-full">
+                Chat on WhatsApp Now
+            </a>
+            <span class="drawer-contact">+91 6264149778</span>
+        </div>
+    </div>
+    <!-- ════════════════════════════════════════
+       SECTION 1 — HERO
+    ════════════════════════════════════════ -->
+    <header class="services-hero">
+        <div class="grid-bg"></div>
+        <div class="hero-content-p">
+            <span class="eyebrow-chip">WHAT WE BUILD</span>
+            <h1 class="hero-h1">AI Infrastructure Built for Indian Businesses</h1>
+            <p class="hero-sub">Every service is custom-built around your industry, your customers, and your workflow.
+                Not templates. Not SaaS. Yours.</p>
+            <div class="hero-ctas">
+                <a href="demo.html" class="btn-glow"
+                    style="background: var(--color-brand-teal); color: #fff; padding: 18px 36px; border-radius: 8px; font-weight: 700; text-decoration: none;">Book
+                    Free Audit →</a>
+                <a href="case-studies.html" class="btn-ghost"
+                    style="border: 1.5px solid #fff; color: #fff; padding: 18px 36px; border-radius: 8px; font-weight: 700; text-decoration: none;">See
+                    Case Studies</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ════════════════════════════════════════
+       SECTION 2 — SERVICE 1: WhatsApp AI Agent
+    ════════════════════════════════════════ -->
+    <section class="service-section">
+        <div class="container-lg">
+            <div class="text-content">
+                <span class="eyebrow-p"
+                    style="color: var(--color-brand-teal); font-weight: 800; font-size: 12px; letter-spacing: 1px;">SERVICE
+                    01</span>
+                <h2 class="h2-navy">WhatsApp AI Agent</h2>
+                <p class="body-p">A 24/7 intelligent agent that handles your inbound WhatsApp messages — booking
+                    appointments, answering FAQs, qualifying leads, and alerting your team. Trained on your business
+                    documents via Pinecone RAG. Speaks Hindi, Hinglish, and English natively.</p>
+                <ul class="del-list">
+                    <li class="del-item"><span class="check-icon">✓</span> Custom AI trained on your business knowledge
+                    </li>
+                    <li class="del-item"><span class="check-icon">✓</span> Multilingual: Hindi, Hinglish and English
+                    </li>
+                    <li class="del-item"><span class="check-icon">✓</span> Google Calendar live appointment booking</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Supabase real-time conversation logging</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Telegram instant staff notifications</li>
+                    <li class="del-item"><span class="check-icon">✓</span> 30-day post-launch tuning and support</li>
+                </ul>
+                <a href="demo.html" class="btn-glow"
+                    style="background: var(--color-brand-teal); color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; align-self: flex-start;">Get
+                    a Custom Quote →</a>
+                <p style="font-style: italic; color: var(--color-text-muted); font-size: 12px;">Pricing customised by country
+                    and business size.</p>
+            </div>
+            <div class="mockup-container">
+                <div class="chat-bubble customer" style="animation-delay: 0.5s;">Hi, I want to book a physiotherapy
+                    session tomorrow at 10am 🙏</div>
+                <div class="chat-bubble ai" style="animation-delay: 2s;">Hello! I found an available slot at 10:00 AM
+                    with Dr. Sharma tomorrow. Shall I confirm this for you?</div>
+                <div class="chat-bubble customer" style="animation-delay: 3.5s;">Yes please!</div>
+                <div class="chat-bubble ai" style="animation-delay: 5s;">Done! Your appointment is confirmed. You'll
+                    receive a calendar invite shortly. ✅</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 3 — SERVICE 2: n8n Workflow Automation
+    ════════════════════════════════════════ -->
+    <section class="service-section bg-neutral">
+        <div class="container-lg reversed">
+            <div class="text-content">
+                <span class="eyebrow-p"
+                    style="color: var(--color-brand-teal); font-weight: 800; font-size: 12px; letter-spacing: 1px;">SERVICE
+                    02</span>
+                <h2 class="h2-navy">n8n Workflow Automation</h2>
+                <p class="body-p">End-to-end business process automation connecting every tool you use. WhatsApp to CRM,
+                    leads to follow-up sequences, data to dashboards — all running automatically on your own self-hosted
+                    n8n instance.</p>
+                <ul class="del-list">
+                    <li class="del-item"><span class="check-icon">✓</span> Custom multi-node n8n workflow builds</li>
+                    <li class="del-item"><span class="check-icon">✓</span> API integrations (WhatsApp, Google, CRMs)
+                    </li>
+                    <li class="del-item"><span class="check-icon">✓</span> Error handling and automatic retry logic</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Self-hosted on your server or GCP/AWS</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Full workflow documentation</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Team training and handover session</li>
+                </ul>
+                <a href="demo.html" class="btn-glow"
+                    style="background: var(--color-brand-teal); color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; align-self: flex-start;">Get
+                    a Custom Quote →</a>
+            </div>
+            <div class="n8n-flow">
+                <div class="node node-trigger">⚡ WhatsApp Trigger</div>
+                <div class="node node-ai">🧠 AI Process</div>
+                <div class="node node-sheet">📊 Google Sheets</div>
+                <div class="node node-cal">📅 Google Calendar</div>
+                <div class="node node-tg">✉️ Telegram</div>
+                <!-- Simple SVG lines would go here -->
+                <svg width="400" height="300" style="position:absolute; inset:0; pointer-events:none;">
+                    <path d="M70 60 L160 180" stroke="#f0f0f0" stroke-width="2" fill="none" />
+                    <path d="M220 180 L350 80" stroke="#f0f0f0" stroke-width="2" fill="none" />
+                    <path d="M220 180 L350 180" stroke="#f0f0f0" stroke-width="2" fill="none" />
+                    <path d="M220 180 L350 280" stroke="#f0f0f0" stroke-width="2" fill="none" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 4 — SERVICE 3: Lead Nurturing System
+    ════════════════════════════════════════ -->
+    <section class="service-section">
+        <div class="container-lg">
+            <div class="text-content">
+                <span class="eyebrow-p"
+                    style="color: var(--color-brand-teal); font-weight: 800; font-size: 12px; letter-spacing: 1px;">SERVICE
+                    03</span>
+                <h2 class="h2-navy">Automated Lead Nurturing</h2>
+                <p class="body-p">A 5 to 7 day WhatsApp follow-up system that automatically re-engages cold leads,
+                    detects buying intent, and books demos — without a single manual message from your team.</p>
+                <ul class="del-list">
+                    <li class="del-item"><span class="check-icon">✓</span> Multi-day WhatsApp sequence builder</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Intent detection and lead scoring logic</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Google Sheets CRM automatic sync</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Escalation to human agent when ready</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Conversion tracking and reporting</li>
+                    <li class="del-item"><span class="check-icon">✓</span> A/B message variant testing</li>
+                </ul>
+                <a href="demo.html" class="btn-glow"
+                    style="background: var(--color-brand-teal); color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; align-self: flex-start;">Get
+                    a Custom Quote →</a>
+            </div>
+            <div class="timeline-box">
+                <div class="timeline-line"></div>
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <strong>Day 1: Initial Hook</strong><span class="open-badge">92% OPEN</span>
+                    <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 8px;">"Hi [Name], thanks for your
+                        interest. Here is the PDF guide you requested..."</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <strong>Day 2: The Question</strong><span class="open-badge">88% OPEN</span>
+                    <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 8px;">"Quick question — what's
+                        your primary challenge with automation right now?"</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <strong>Day 3: Social Proof</strong><span class="open-badge">85% OPEN</span>
+                    <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 8px;">"Here's how we helped a
+                        clinic in Indore handle 200+ bookings in a week..."</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <strong>Day 5: Scarcity</strong><span class="open-badge">81% OPEN</span>
+                    <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 8px;">"Last chance to grab an
+                        audit slot this week. Only 2 spots left."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 5 — SERVICE 4: Industry AI Solutions
+    ════════════════════════════════════════ -->
+    <section class="service-section bg-neutral">
+        <div class="container-lg reversed">
+            <div class="text-content">
+                <span class="eyebrow-p"
+                    style="color: var(--color-brand-teal); font-weight: 800; font-size: 12px; letter-spacing: 1px;">SERVICE
+                    04</span>
+                <h2 class="h2-navy">Industry-Specific AI Solutions</h2>
+                <p class="body-p">Purpose-built AI systems designed around how your specific industry actually works.
+                    Not a generic bot — a vertical-aware agent with industry logic, compliance awareness, and
+                    conversation flows that make sense to your customers.</p>
+                <ul class="del-list">
+                    <li class="del-item"><span class="check-icon">✓</span> Pre-built industry conversation templates
+                    </li>
+                    <li class="del-item"><span class="check-icon">✓</span> Vertical-specific intent detection</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Industry compliance awareness built-in</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Same-language support as your customers</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Launch-ready in 2 to 4 weeks</li>
+                    <li class="del-item"><span class="check-icon">✓</span> Free industry audit before build begins</li>
+                </ul>
+                <a href="demo.html" class="btn-glow"
+                    style="background: var(--color-brand-teal); color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; align-self: flex-start;">Get
+                    a Custom Quote →</a>
+            </div>
+            <div class="industry-grid">
+                <div class="ind-card">
+                    <span class="ind-icon">🏥</span>
+                    <span class="ind-title">Healthcare</span>
+                    <span class="ind-desc">Clinic booking + patient FAQ</span>
+                </div>
+                <div class="ind-card">
+                    <span class="ind-icon">🏢</span>
+                    <span class="ind-title">Real Estate</span>
+                    <span class="ind-desc">Lead qualify + property info</span>
+                </div>
+                <div class="ind-card">
+                    <span class="ind-icon">🎓</span>
+                    <span class="ind-title">Education</span>
+                    <span class="ind-desc">Admission funnel + demo booking</span>
+                </div>
+                <div class="ind-card">
+                    <span class="ind-icon">🏋️</span>
+                    <span class="ind-title">E-Commerce</span>
+                    <span class="ind-desc">Order tracking + product inquiry</span>
+                </div>
+                <div class="ind-card">
+                    <span class="ind-icon">🚗</span>
+                    <span class="ind-title">Automobile</span>
+                    <span class="ind-desc">Test drive booking + service alerts</span>
+                </div>
+                <div class="ind-card">
+                    <span class="ind-icon">✈️</span>
+                    <span class="ind-title">Travel & Tourism</span>
+                    <span class="ind-desc">Itinerary support + ticket booking</span>
+                </div>
+            </div>
+                <div class="ind-card">
+                    <span class="ind-icon">🏢</span>
+                    <span class="ind-title">Real Estate</span>
+                    <span class="ind-desc">Lead qualify + property info</span>
+                </div>
+                <div class="ind-card">
+                    <span class="ind-icon">🎓</span>
+                    <span class="ind-title">Education</span>
+                    <span class="ind-desc">Admission funnel + demo booking</span>
+                </div>
+                <div class="ind-card">
+                    <span class="ind-icon">🏋️</span>
+                    <span class="ind-title">Coaching</span>
+                    <span class="ind-desc">Batch inquiry + counsellor routing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 6 — TECH STACK STRIP
+    ════════════════════════════════════════ -->
+    <section class="tech-strip">
+        <h3 class="tech-title">BUILT WITH ENTERPRISE-GRADE TOOLS</h3>
+        <div class="marquee-wrap">
+            <div class="tech-item">n8n <div class="divider"></div> WhatsApp API <div class="divider"></div> Google
+                Gemini <div class="divider"></div> Pinecone <div class="divider"></div> Supabase <div class="divider">
+                </div> Google Calendar <div class="divider"></div> Google Sheets <div class="divider"></div> OpenAI <div
+                    class="divider"></div> Telegram API <div class="divider"></div> Vercel</div>
+            <div class="tech-item">n8n <div class="divider"></div> WhatsApp API <div class="divider"></div> Google
+                Gemini <div class="divider"></div> Pinecone <div class="divider"></div> Supabase <div class="divider">
+                </div> Google Calendar <div class="divider"></div> Google Sheets <div class="divider"></div> OpenAI <div
+                    class="divider"></div> Telegram API <div class="divider"></div> Vercel</div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+       SECTION 7 — BOTTOM CTA
+    ════════════════════════════════════════ -->
+    <section class="bottom-cta">
+        <h2 class="h2-navy" style="font-size: 48px; margin-bottom: 20px;">Not Sure Which Service You Need?</h2>
+        <p class="body-p" style="max-width: 600px; margin: 0 auto 40px;">Book a free 30-minute call. We will audit your
+            current workflow and recommend exactly what to build first.</p>
+        <a href="demo.html" class="btn-glow"
+            style="background: var(--color-brand-teal); color: #fff; padding: 24px 48px; border-radius: 12px; font-weight: 700; font-size: 20px; text-decoration: none; display: inline-block;">Book
+            Free Audit →</a>
+        <p style="color: var(--color-text-muted); font-size: 14px; margin-top: 24px;">No commitment. Pricing discussed on
+            call. <br>Customised by your country and business size.</p>
+    </section>
+
+        <!-- ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ -->
+        <footer class="footer-new">
+        <div class="footer-glow-line"></div>
+        <div class="footer-container">
+            <div class="footer-grid-new">
+                <!-- Col 1: Brand & Socials -->
+                <div class="footer-brand-new">
+                    <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+                        <span class="nav-wordmark">Data Agent Services</span>
+                    </a>
+                    <p class="footer-tagline">
+                        AI Infrastructure for Indian Businesses.<br>
+                        Built for Clinics, Real Estate, and Schools.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/company/dataagent-services" class="social-glass linkedin" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/data_agent_services/" class="social-glass instagram" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61573865070749" class="social-glass facebook" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                        <a href="https://wa.me/916264149778" class="social-glass whatsapp" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.473-1.761-1.646-2.06-.173-.301-.018-.464.13-.614.134-.136.3-.313.448-.47.149-.158.199-.27.298-.452.099-.18.05-.338-.024-.486-.075-.15-.67-1.618-.918-2.215-.242-.58-.487-.5-.67-.508-.173-.008-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">SERVICES</span>
+                    <a href="services.html" class="footer-link">WhatsApp AI Agent</a>
+                    <a href="services.html" class="footer-link">n8n Automation</a>
+                    <a href="services.html" class="footer-link">Lead Nurturing</a>
+                    <a href="services.html" class="footer-link">Industry Solutions</a>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">COMPANY</span>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="pricing.html" class="footer-link">Pricing</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">CONTACT</span>
+                    <a href="mailto:contactus@dataagent.in" class="footer-contact-item is-link">✉ contactus@dataagent.in</a>
+                    <a href="tel:+916264149778" class="footer-contact-item is-link">📞 +91 62641 49778</a>
+                    <div class="footer-contact-item">📍 Indore, Madhya Pradesh, India</div>
+                    <a href="https://wa.me/916264149778" class="footer-wa-cta">
+                        💬 Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom-bar">
+                <span class="footer-bottom-text">© 2026 Data Agent Services.</span>
+                <div class="footer-legal-links" style="display: flex; gap: 20px;">
+                    <a href="privacy.html" class="footer-bottom-text" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="terms.html" class="footer-bottom-text" style="text-decoration: none;">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="scripts.js"></script>
+    <script src="navbar.js"></script>
+</body>
+
+</html>

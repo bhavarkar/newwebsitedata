@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Case Studies — Client Results | Data Agent Services</title>
+    <meta name="description"
+        content="Explore real-world impact of AI automation and WhatsApp agents for healthcare, real estate, and education by Aakash Bhavarkar.">
+    <link rel="canonical" href="https://www.dataagent.in/case-studies">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ════════════════════════════════════════
+           PREMIUM CASE STUDIES REWRITE
+        ════════════════════════════════════════ */
+
+        /* 1. HERO SECTION */
+        .case-hero {
+            background-color: transparent;
+            padding: 180px 5% 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Animated Dot Grid */
+        .dot-grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(244, 139, 105, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.6;
+            pointer-events: none;
+            animation: move-dots 60s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes move-dots {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 100% 100%;
+            }
+        }
+
+        .case-hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow-chip {
+            background: rgba(244, 139, 105, 0.1);
+            color: var(--color-brand-teal);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(244, 139, 105, 0.2);
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .hero-h1 {
+            color: var(--color-text-white);
+            max-width: 900px;
+            margin-bottom: 24px;
+        }
+
+        .hero-sub {
+            color: var(--color-text-muted);
+            font-size: 20px;
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .stat-chips {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-chip {
+            background: var(--color-brand-teal);
+            color: var(--color-text-white);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(244, 139, 105, 0.3);
+        }
+
+        /* 2. FEATURED CASE STUDY */
+        .featured-section {
+            padding: 100px 5%;
+            background: var(--color-glass-bg);
+            margin-top: -60px;
+            z-index: 5;
+            position: relative;
+        }
+
+        .featured-card {
+            background: var(--color-bg-primary);
+            border-radius: 32px;
+            padding: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            border: 1px solid rgba(244, 139, 105, 0.2);
+            box-shadow: 0 0 40px rgba(244, 139, 105, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 50%;
+            height: 140%;
+            background: radial-gradient(circle at center, rgba(244, 139, 105, 0.08) 0%, transparent 70%);
+            transform: rotate(-15deg);
+        }
+
+        .featured-left {
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            color: var(--color-brand-teal);
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .featured-h2 {
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: 42px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .featured-body {
+            color: var(--color-text-muted);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .tech-chips {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .tech-chip {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--color-brand-teal);
+            background: rgba(244, 139, 105, 0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .featured-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--color-brand-teal);
+            padding: 24px;
+            border-radius: 4px 16px 16px 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .metric-number {
+            font-family: var(--font-display);
+            font-size: 48px;
+            color: var(--color-brand-teal);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .metric-label {
+            color: #fff;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        /* 3. CASE STUDY GRID */
+        .all-cases-section {
+            padding: 100px 5%;
+            background: var(--color-glass-bg);
+        }
+
+        .filter-header {
+            max-width: 1200px;
+            margin: 0 auto 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .filter-chips {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 10px 24px;
+            border-radius: 100px;
+            border: 1.5px solid rgba(255, 255, 255, 0.05);
+            background: none;
+            color: var(--color-text-muted);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-chip.active {
+            background: var(--color-brand-teal);
+            border-color: var(--color-brand-teal);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 105, 0.2);
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background: var(--color-glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .case-card .industry-badge {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .case-card .big-metric {
+            font-family: var(--font-display);
+            font-size: 64px;
+            color: var(--color-brand-teal);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .case-card .metric-label {
+            color: var(--color-text-white);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .case-card .summary {
+            color: var(--color-text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .case-card .tag-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .case-card .tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-text-muted);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .case-card .read-story {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            color: var(--color-brand-teal);
+            font-weight: 700;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-brand-teal);
+            box-shadow: 0 30px 60px rgba(10, 22, 40, 0.08);
+        }
+
+        .case-card:hover .read-story {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* 4. HOW WE MEASURE RESULTS */
+        .measure-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .measure-header {
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .measure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .measure-card {
+            background: var(--color-glass-bg);
+            padding: 48px 32px;
+            border-radius: 24px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .measure-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .measure-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(244, 139, 105, 0.1);
+            color: var(--color-brand-teal);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        .measure-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--color-text-white);
+        }
+
+        .measure-card p {
+            font-size: 15px;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* 5. TESTIMONIAL STRIP */
+        .testimonial-strip {
+            background: var(--color-bg-primary);
+            padding: 100px 5%;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .quote-icon {
+            font-family: var(--font-display);
+            font-size: 120px;
+            color: var(--color-brand-teal);
+            opacity: 0.2;
+            line-height: 1;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+
+        .testimonial-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-author {
+            color: var(--color-text-muted);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .stars {
+            color: #F59E0B;
+            font-size: 20px;
+            letter-spacing: 4px;
+        }
+
+        /* 6. BOTTOM CTA */
+        .bottom-cta-section {
+            padding: 120px 5%;
+            text-align: center;
+            background: var(--color-glass-bg);
+        }
+
+        .bottom-cta-header {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-note {
+            margin-top: 24px;
+            color: var(--color-text-muted);
+            font-size: 14px;
+            max-width: 500px;
+            margin-inline: auto;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1023px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+                padding: 40px;
+            }
+
+            .case-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .measure-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-h2 {
+                font-size: 32px;
+            }
+
+            .testimonial-quote {
+                font-size: 22px;
+            }
+
+            .hero-h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- LEFT — Logo -->
+            <a href="index.html" class="nav-logo"><span class="nav-wordmark" style="color: white; font-weight: 700; font-family: 'DM Sans', sans-serif;">Data Agent Services</span></a>
+
+            <!-- CENTRE — Links -->
+            <div class="nav-links">
+                <a href="services.html" class="nav-link"><span>Services</span></a>
+                <a href="case-studies.html" class="nav-link active"><span>Case Studies</span></a>
+                <a href="pricing.html" class="nav-link"><span>Pricing</span></a>
+                <a href="about.html" class="nav-link"><span>About</span></a>
+                <a href="blog.html" class="nav-link"><span>Blog</span></a>
+                <div class="nav-indicator"></div>
+            </div>
+
+            <!-- RIGHT — Buttons -->
+            <div class="nav-actions">
+                <a href="https://cal.com/dataagent/15min" class="btn-demo">Book a Demo</a>
+                <a href="https://wa.me/916264149778" class="btn-wa-icon" aria-label="WhatsApp">
+                    
+                </a>
+                <button class="nav-hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="drawer">
+        <div class="drawer-links">
+            <a href="services.html">Services</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+        </div>
+        <div class="drawer-bottom">
+            <a href="demo.html"
+                style="background: var(--color-brand-teal); text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Book
+                Free Audit</a>
+            <a href="https://wa.me/918827939677"
+                style="background:#25D366; text-align:center; color:#fff; padding: 20px; border-radius: 12px; font-weight:700; text-decoration:none;">Chat
+                on WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- SECTION 1: HERO -->
+    <header class="case-hero">
+        <div class="dot-grid"></div>
+        <span class="eyebrow-chip reveal">CLIENT RESULTS</span>
+        <h1 class="hero-h1 reveal"
+            style="font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px); font-weight: 800; line-height: 1.1;">
+            Real Results. Real Businesses.</h1>
+        <p class="hero-sub reveal">Every system we have built is a live
+            case study in automation-driven growth.
+            No vanity metrics — only results that
+            moved the business forward.</p>
+
+        <div class="stat-chips reveal">
+            <div class="stat-chip">20+ Systems Built</div>
+            <div class="stat-chip">3 Industries</div>
+            <div class="stat-chip">India & UAE Clients</div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: FEATURED CASE STUDY -->
+    <section class="featured-section">
+        <div class="featured-card reveal">
+            <div class="featured-left">
+                <span class="featured-badge">FEATURED · HEALTHCARE</span>
+                <h2 class="featured-h2">Physio One Clinic: From Missed
+                    Calls to a Fully Automated Booking System</h2>
+                <p class="featured-body">A physiotherapy clinic in
+                    India was losing patients daily to unanswered
+                    WhatsApp messages after hours. We built a
+                    multilingual AI agent that handles appointments,
+                    FAQs, and staff alerts — in Hindi, Hinglish,
+                    and English — 24 hours a day.</p>
+
+                <div class="tech-chips">
+                    <span class="tech-chip">n8n</span>
+                    <span class="tech-chip">Google Gemini</span>
+                    <span class="tech-chip">Pinecone</span>
+                    <span class="tech-chip">Supabase</span>
+                    <span class="tech-chip">WhatsApp API</span>
+                    <span class="tech-chip">Google Calendar</span>
+                </div>
+
+                <a href="demo.html" class="btn-glow" style="padding: 18px 36px; font-size: 16px;">Read Full Case
+                    Study →</a>
+            </div>
+
+            <div class="featured-metrics">
+                <div class="metric-card">
+                    <span class="metric-number">3×</span>
+                    <span class="metric-label">Booking rate increase in 60 days</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">&lt;2 sec</span>
+                    <span class="metric-label">Average AI response time</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">3 langs</span>
+                    <span class="metric-label">Hindi · Hinglish · English</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CASE STUDY GRID -->
+    <section class="all-cases-section">
+        <div class="filter-header">
+            <h2 class="text-h2" style="font-size: 42px;">All Case Studies</h2>
+            <div class="filter-chips">
+                <button class="filter-chip active" data-filter="all">All</button>
+                <button class="filter-chip" data-filter="healthcare">Healthcare</button>
+                <button class="filter-chip" data-filter="realestate">Real Estate</button>
+                <button class="filter-chip" data-filter="education">Education</button>
+                <button class="filter-chip" data-filter="coaching">Coaching</button>
+            </div>
+        </div>
+
+        <div class="case-grid">
+            <!-- CARD 1: Physio One (Healthcare) -->
+            <div class="case-card reveal" data-category="healthcare">
+                <span class="industry-badge" style="color: var(--color-brand-teal);">HEALTHCARE</span>
+                <div class="big-metric">3×</div>
+                <span class="metric-label">Booking rate in 60 days</span>
+                <p class="summary">Multilingual WhatsApp AI agent for
+                    a physiotherapy clinic. Appointments, FAQs,
+                    and staff alerts — 24/7.</p>
+                <div class="tag-row">
+                    <span class="tag">n8n</span>
+                    <span class="tag">Gemini</span>
+                    <span class="tag">Pinecone</span>
+                    <span class="tag">Supabase</span>
+                </div>
+                <span class="read-story">Read Story →</span>
+            </div>
+
+            <!-- CARD 2: Real Estate Developer -->
+            <div class="case-card reveal" data-category="realestate">
+                <span class="industry-badge" style="color: var(--color-brand-amber);">REAL ESTATE</span>
+                <div class="big-metric">5-day</div>
+                <span class="metric-label">Follow-up sequence recovered cold leads</span>
+                <p class="summary">GPT-4o lead qualification and
+                    automated follow-up with Google Sheets CRM
+                    and Telegram escalation for a property developer.</p>
+                <div class="tag-row">
+                    <span class="tag">n8n</span>
+                    <span class="tag">GPT-4o</span>
+                    <span class="tag">Sheets</span>
+                    <span class="tag">Telegram</span>
+                </div>
+                <span class="read-story">Read Story →</span>
+            </div>
+
+            <!-- CARD 3: Cambridge International -->
+            <div class="case-card reveal" data-category="education">
+                <span class="industry-badge" style="color: var(--color-brand-teal);">EDUCATION</span>
+                <div class="big-metric">90-day</div>
+                <span class="metric-label">Full automation roadmap delivered</span>
+                <p class="summary">End-to-end WhatsApp admission
+                    automation — Facebook leads to booked demos,
+                    with full ROI breakdown for school leadership.</p>
+                <div class="tag-row">
+                    <span class="tag">n8n</span>
+                    <span class="tag">WhatsApp API</span>
+                    <span class="tag">Sheets</span>
+                    <span class="tag">Gemini</span>
+                </div>
+                <span class="read-story">Read Story →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: HOW WE MEASURE RESULTS -->
+    <section class="measure-section">
+        <div class="measure-header reveal">
+            <h2 class="text-h2">How We Measure Every Project</h2>
+            <p class="text-body-large" style="margin-top: 16px;">Before every build, we agree on 3
+                measurable outcomes. After 30 days,
+                we review them together.</p>
+        </div>
+
+        <div class="measure-grid">
+            <!-- Card 1 -->
+            <div class="measure-card reveal">
+                <div class="measure-icon">🎯</div>
+                <h3>Pre-Build Baseline</h3>
+                <p>We document your current response time,
+                    lead conversion rate, and weekly manual hours
+                    before we build anything.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="measure-card reveal">
+                <div class="measure-icon">📊</div>
+                <h3>30-Day Live Review</h3>
+                <p>One month after launch we sit down
+                    and review every metric against the baseline.
+                    No hiding from the numbers.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="measure-card reveal">
+                <div class="measure-icon">📈</div>
+                <h3>Documented ROI</h3>
+                <p>Every case study on this page is
+                    backed by real before-and-after data
+                    shared with client permission.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: TESTIMONIAL STRIP -->
+    <section class="testimonial-strip">
+        <div class="quote-icon">“</div>
+        <div class="testimonial-content reveal">
+            <p class="testimonial-quote">The WhatsApp AI agent Aakash built for us
+                handles more patient inquiries in one night
+                than our front desk does in a full day.</p>
+            <div class="testimonial-details">
+                <span class="testimonial-author">— Clinic Manager, Physio One · Indore</span>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: BOTTOM CTA -->
+    <section class="bottom-cta-section">
+        <div class="bottom-cta-header reveal">
+            <h2 class="text-h2">Want Results Like These for Your Business?</h2>
+            <p class="text-body-large" style="margin-top: 16px;">Book a free audit call. We will show you
+                a live demo built for your specific industry.</p>
+            <a href="demo.html" class="btn-glow"
+                style="margin-top: 40px; padding: 20px 48px; border-radius: 12px; font-size: 18px;">Book Free Audit
+                →</a>
+            <p class="cta-note">Note: Pricing customised by country and
+                business size. No commitment required.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    
+        <!-- ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ -->
+        <footer class="footer-new">
+        <div class="footer-glow-line"></div>
+        <div class="footer-container">
+            <div class="footer-grid-new">
+                <!-- Col 1: Brand & Socials -->
+                <div class="footer-brand-new">
+                    <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+                        <span class="nav-wordmark">Data Agent Services</span>
+                    </a>
+                    <p class="footer-tagline">
+                        AI Infrastructure for Indian Businesses.<br>
+                        Built for Clinics, Real Estate, and Schools.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/company/dataagent-services" class="social-glass linkedin" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/data_agent_services/" class="social-glass instagram" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61573865070749" class="social-glass facebook" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                        <a href="https://wa.me/916264149778" class="social-glass whatsapp" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.473-1.761-1.646-2.06-.173-.301-.018-.464.13-.614.134-.136.3-.313.448-.47.149-.158.199-.27.298-.452.099-.18.05-.338-.024-.486-.075-.15-.67-1.618-.918-2.215-.242-.58-.487-.5-.67-.508-.173-.008-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">SERVICES</span>
+                    <a href="services.html" class="footer-link">WhatsApp AI Agent</a>
+                    <a href="services.html" class="footer-link">n8n Automation</a>
+                    <a href="services.html" class="footer-link">Lead Nurturing</a>
+                    <a href="services.html" class="footer-link">Industry Solutions</a>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">COMPANY</span>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="case-studies.html" class="footer-link">Case Studies</a>
+                    <a href="pricing.html" class="footer-link">Pricing</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col-nav">
+                    <span class="footer-label">CONTACT</span>
+                    <a href="mailto:contactus@dataagent.in" class="footer-contact-item is-link">✉ contactus@dataagent.in</a>
+                    <a href="tel:+916264149778" class="footer-contact-item is-link">📞 +91 62641 49778</a>
+                    <div class="footer-contact-item">📍 Indore, Madhya Pradesh, India</div>
+                    <a href="https://wa.me/916264149778" class="footer-wa-cta">
+                        💬 Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom-bar">
+                <span class="footer-bottom-text">© 2026 Data Agent Services.</span>
+                <div class="footer-legal-links" style="display: flex; gap: 20px;">
+                    <a href="privacy.html" class="footer-bottom-text" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="terms.html" class="footer-bottom-text" style="text-decoration: none;">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="scripts.js"></script>
+    <script>
+        // Case Study Filtering Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const chips = document.querySelectorAll('.filter-chip');
+            const cards = document.querySelectorAll('.case-card');
+
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    // Update chips
+                    chips.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+
+                    const filter = chip.getAttribute('data-filter');
+
+                    // Filter cards
+                    cards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

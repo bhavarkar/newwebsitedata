@@ -1,0 +1,17 @@
+node_modules/
+.DS_Store
+*.log
+sync_nav_footer.js
+global_cleanup.js
+patch_buttons.js
+remove_journey.js
+logo_gradient_updater.js
+restore_logo_and_tech.js
+global_ui_updater.js
+sections-cd.html
+sections-ab.html
+.gemini/
+.agent/
+.agents/
+_agent/
+_agents/

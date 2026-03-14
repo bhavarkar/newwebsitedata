@@ -1,0 +1,521 @@
+{
+    "name": "Data Agent Services Design System",
+    "author": "Aakash Bhavarkar",
+    "company": "AI automation agency. Indore, India.",
+    "website": "www.dataagent.in",
+    "theme": "Dark-first. Premium. Glassmorphism.",
+    "colors": {
+        "background": {
+            "primary": {
+                "value": "#0A1628",
+                "type": "color"
+            },
+            "secondary": {
+                "value": "#0D1F38",
+                "type": "color"
+            },
+            "deep": {
+                "value": "#060E1A",
+                "type": "color"
+            }
+        },
+        "brand": {
+            "teal": {
+                "value": "#00C9B1",
+                "type": "color"
+            },
+            "tealGlow": {
+                "value": "rgba(0, 201, 177, 0.15)",
+                "type": "color"
+            },
+            "tealDim": {
+                "value": "rgba(0, 201, 177, 0.08)",
+                "type": "color"
+            },
+            "tealBorder": {
+                "value": "rgba(0, 201, 177, 0.2)",
+                "type": "color"
+            },
+            "amber": {
+                "value": "#F59E0B",
+                "type": "color"
+            },
+            "white": {
+                "value": "#FFFFFF",
+                "type": "color"
+            }
+        },
+        "text": {
+            "body": {
+                "value": "rgba(255, 255, 255, 0.6)",
+                "type": "color"
+            },
+            "muted": {
+                "value": "rgba(255, 255, 255, 0.35)",
+                "type": "color"
+            },
+            "h1h2": {
+                "value": "#FFFFFF",
+                "type": "color"
+            },
+            "h3h4": {
+                "value": "rgba(255, 255, 255, 0.9)",
+                "type": "color"
+            },
+            "label": {
+                "value": "#00C9B1",
+                "type": "color"
+            },
+            "mono": {
+                "value": "#00C9B1",
+                "type": "color"
+            }
+        },
+        "glass": {
+            "bg": {
+                "value": "rgba(255, 255, 255, 0.04)",
+                "type": "color"
+            },
+            "border": {
+                "value": "rgba(255, 255, 255, 0.08)",
+                "type": "color"
+            }
+        }
+    },
+    "typography": {
+        "family": {
+            "display": {
+                "value": "Playfair Display",
+                "type": "fontFamilies"
+            },
+            "body": {
+                "value": "DM Sans",
+                "type": "fontFamilies"
+            },
+            "mono": {
+                "value": "JetBrains Mono",
+                "type": "fontFamilies"
+            }
+        },
+        "h1": {
+            "fontFamily": {
+                "value": "{typography.family.display.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "800",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "72px",
+                "type": "fontSizes"
+            }
+        },
+        "h2": {
+            "fontFamily": {
+                "value": "{typography.family.display.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "700",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "48px",
+                "type": "fontSizes"
+            }
+        },
+        "h3": {
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "700",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "28px",
+                "type": "fontSizes"
+            }
+        },
+        "h4": {
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "600",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "22px",
+                "type": "fontSizes"
+            }
+        },
+        "bodyL": {
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "400",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "18px",
+                "type": "fontSizes"
+            }
+        },
+        "bodyM": {
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "400",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "16px",
+                "type": "fontSizes"
+            }
+        },
+        "bodyS": {
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "400",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "14px",
+                "type": "fontSizes"
+            }
+        },
+        "mono": {
+            "fontFamily": {
+                "value": "{typography.family.mono.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "400",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "13px",
+                "type": "fontSizes"
+            }
+        },
+        "label": {
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "700",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "11px",
+                "type": "fontSizes"
+            },
+            "letterSpacing": {
+                "value": "0.12em",
+                "type": "letterSpacing"
+            },
+            "textTransform": {
+                "value": "uppercase",
+                "type": "textCase"
+            }
+        }
+    },
+    "effects": {
+        "gradientText": {
+            "value": "linear-gradient(135deg, #00C9B1 0%, #FFFFFF 60%)",
+            "type": "color"
+        },
+        "divider": {
+            "value": "linear-gradient(90deg, transparent, rgba(0, 201, 177, 0.3), transparent)",
+            "type": "color"
+        }
+    },
+    "backgrounds": {
+        "layer1": {
+            "value": "#0A1628",
+            "type": "color"
+        },
+        "layer2": {
+            "value": "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+            "type": "color"
+        },
+        "layer3Orb1": {
+            "value": "rgba(0,201,177,0.12)",
+            "type": "color"
+        },
+        "layer3Orb2": {
+            "value": "rgba(245,158,11,0.07)",
+            "type": "color"
+        },
+        "layer4Vignette": {
+            "value": "radial-gradient(ellipse at center, transparent 40%, #0A1628 100%)",
+            "type": "color"
+        },
+        "layer5Noise": {
+            "value": "opacity 0.03",
+            "type": "other"
+        }
+    },
+    "components": {
+        "glassCard": {
+            "bg": {
+                "value": "rgba(255, 255, 255, 0.04)",
+                "type": "color"
+            },
+            "border": {
+                "value": "rgba(255, 255, 255, 0.08)",
+                "type": "color"
+            },
+            "borderRadius": {
+                "value": "16px",
+                "type": "borderRadius"
+            },
+            "backdropFilter": {
+                "value": "blur(20px)",
+                "type": "other"
+            },
+            "hoverShadow": {
+                "value": "0 0 30px rgba(0,201,177,0.12), 0 0 0 1px rgba(0,201,177,0.25)",
+                "type": "boxShadow"
+            },
+            "hoverTransform": {
+                "value": "translateY(-2px)",
+                "type": "other"
+            }
+        },
+        "buttonPrimary": {
+            "bg": {
+                "value": "#00C9B1",
+                "type": "color"
+            },
+            "text": {
+                "value": "#0A1628",
+                "type": "color"
+            },
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "700",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "15px",
+                "type": "fontSizes"
+            },
+            "padding": {
+                "value": "14px 28px",
+                "type": "spacing"
+            },
+            "borderRadius": {
+                "value": "8px",
+                "type": "borderRadius"
+            },
+            "boxShadow": {
+                "value": "0 0 24px rgba(0,201,177,0.3)",
+                "type": "boxShadow"
+            },
+            "hoverShadow": {
+                "value": "0 0 40px rgba(0,201,177,0.5)",
+                "type": "boxShadow"
+            }
+        },
+        "buttonGhost": {
+            "bg": {
+                "value": "transparent",
+                "type": "color"
+            },
+            "border": {
+                "value": "1px solid rgba(255,255,255,0.15)",
+                "type": "color"
+            },
+            "text": {
+                "value": "rgba(255,255,255,0.7)",
+                "type": "color"
+            },
+            "padding": {
+                "value": "14px 28px",
+                "type": "spacing"
+            },
+            "borderRadius": {
+                "value": "8px",
+                "type": "borderRadius"
+            },
+            "hoverBg": {
+                "value": "rgba(255,255,255,0.06)",
+                "type": "color"
+            },
+            "hoverText": {
+                "value": "#FFFFFF",
+                "type": "color"
+            }
+        },
+        "whatsappButton": {
+            "bg": {
+                "value": "#25D366",
+                "type": "color"
+            },
+            "text": {
+                "value": "#FFFFFF",
+                "type": "color"
+            },
+            "boxShadow": {
+                "value": "0 0 24px rgba(37,211,102,0.25)",
+                "type": "boxShadow"
+            }
+        },
+        "techChip": {
+            "bg": {
+                "value": "rgba(0, 201, 177, 0.08)",
+                "type": "color"
+            },
+            "border": {
+                "value": "1px solid rgba(0, 201, 177, 0.2)",
+                "type": "color"
+            },
+            "text": {
+                "value": "#00C9B1",
+                "type": "color"
+            },
+            "fontFamily": {
+                "value": "{typography.family.mono.value}",
+                "type": "fontFamilies"
+            },
+            "fontSize": {
+                "value": "11px",
+                "type": "fontSizes"
+            },
+            "padding": {
+                "value": "4px 10px",
+                "type": "spacing"
+            },
+            "borderRadius": {
+                "value": "4px",
+                "type": "borderRadius"
+            }
+        },
+        "industryBadge": {
+            "bg": {
+                "value": "rgba(0, 201, 177, 0.1)",
+                "type": "color"
+            },
+            "border": {
+                "value": "1px solid rgba(0, 201, 177, 0.2)",
+                "type": "color"
+            },
+            "text": {
+                "value": "#00C9B1",
+                "type": "color"
+            },
+            "fontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "fontWeight": {
+                "value": "700",
+                "type": "fontWeights"
+            },
+            "fontSize": {
+                "value": "11px",
+                "type": "fontSizes"
+            },
+            "textTransform": {
+                "value": "uppercase",
+                "type": "textCase"
+            },
+            "padding": {
+                "value": "4px 12px",
+                "type": "spacing"
+            },
+            "borderRadius": {
+                "value": "999px",
+                "type": "borderRadius"
+            }
+        },
+        "metricCard": {
+            "bg": {
+                "value": "rgba(0, 201, 177, 0.06)",
+                "type": "color"
+            },
+            "borderLeft": {
+                "value": "3px solid #00C9B1",
+                "type": "color"
+            },
+            "borderRadius": {
+                "value": "0 12px 12px 0",
+                "type": "borderRadius"
+            },
+            "padding": {
+                "value": "20px 24px",
+                "type": "spacing"
+            },
+            "numberFontFamily": {
+                "value": "{typography.family.display.value}",
+                "type": "fontFamilies"
+            },
+            "numberFontWeight": {
+                "value": "800",
+                "type": "fontWeights"
+            },
+            "numberFontSize": {
+                "value": "48px",
+                "type": "fontSizes"
+            },
+            "numberColor": {
+                "value": "#00C9B1",
+                "type": "color"
+            },
+            "labelFontFamily": {
+                "value": "{typography.family.body.value}",
+                "type": "fontFamilies"
+            },
+            "labelFontWeight": {
+                "value": "400",
+                "type": "fontWeights"
+            },
+            "labelFontSize": {
+                "value": "14px",
+                "type": "fontSizes"
+            },
+            "labelColor": {
+                "value": "rgba(255,255,255,0.5)",
+                "type": "color"
+            }
+        },
+        "sectionEyebrow": {
+            "fontFamily": {
+                "value": "{typography.family.mono.value}",
+                "type": "fontFamilies"
+            },
+            "fontSize": {
+                "value": "11px",
+                "type": "fontSizes"
+            },
+            "color": {
+                "value": "#00C9B1",
+                "type": "color"
+            },
+            "textTransform": {
+                "value": "uppercase",
+                "type": "textCase"
+            },
+            "letterSpacing": {
+                "value": "0.15em",
+                "type": "letterSpacing"
+            }
+        }
+    }
+}
